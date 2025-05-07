@@ -1,0 +1,1382 @@
+[
+  {
+    "prefix": "package com.mosi.feedback;\n\nimport java.util.List;\n\n/**\n * Feedback objects provider. This layer separates REST API from data layer. It\n * allows us to replace persistent layer if needed.\n * \n * @author Martin\n *\n */\npublic interface FeedbackProvider {\n\n\t/**\n\t * Get all feedback items.\n\t * \n\t * @return list of feedbacks\n\t */\n\tList<Feedback> getItems();\n\n\t/**\n\t * Get all items which have the same user name\n\t * \n\t *",
+    "suffix": " to be stored\n\t * \n\t * @return stored feedback object\n\t */\n\tFeedback addItem(Feedback feedback);\n}\n",
+    "target": " @param user\n\t *            specified user name\n\t * @return list of feedbacks\n\t */\n\tList<Feedback> getItemsByUser(String user);\n\n\t/**\n\t * Add new feedback item to the store\n\t * \n\t * @param feedback\n\t *            feedback object which needs"
+  },
+  {
+    "prefix": "package org.arquillian.wildfly.example;\n\nimport static org.junit.Assert.assertEquals;\n\nimport javax.inject.Inject;\n\nimport org.jboss.arquillian.container.test.api.De",
+    "suffix": ";\nimport org.junit.runner.RunWith;\n\n@RunWith(Arquillian.class)\npublic class BasicTest {\n\n    @Deployment\n    public static JavaArchive createDeployment() {\n        return ShrinkWrap.create(JavaArchive.class).addClass(Greeter.class)\n                .addAsManifestResource(EmptyAsset.INSTANCE, \"beans.xml\");\n    }\n\n    @Inject\n    private Greeter greeter;\n\n    @Test\n    public void shouldBeAbleTo() {\n        assertEquals(\"Hello, aliens!\", greeter.createGreeting(\"aliens\"));\n    }\n}",
+    "target": "ployment;\nimport org.jboss.arquillian.junit.Arquillian;\nimport org.jboss.shrinkwrap.api.ShrinkWrap;\nimport org.jboss.shrinkwrap.api.asset.EmptyAsset;\nimport org.jboss.shrinkwrap.api.spec.JavaArchive;\nimport org.junit.Test"
+  },
+  {
+    "prefix": "package com.haulmont.sample.petclinic.web.widgets;\n\nimport com.haulmont.addon.dashboard.web",
+    "suffix": ".haulmont.cuba.gui.screen.UiDescriptor;\n\n@UiController(\"petclinic_PokemonArtWidget\")\n@UiDescriptor(\"pokemon-art-widget.xml\")\n@DashboardWidget(name=\"Pokemon Art\")\npublic class PokemonArtWidget extends ScreenFragment {\n}",
+    "target": ".annotation.DashboardWidget;\nimport com.haulmont.cuba.gui.screen.ScreenFragment;\nimport com.haulmont.cuba.gui.screen.UiController;\nimport com"
+  },
+  {
+    "prefix": "package de.mklinger.commons.httpclient.internal;\n\nimport java.io.InputStream;\n\nimport org.eclipse.jetty.client.api.ContentProvider;\nimport org.eclipse.jetty.client.util.InputStreamContentProvider;\n\nimport de.mklinger.commons.",
+    "suffix": "\n\n\tpublic InputStreamBodyProvider(String contentType, InputStream stream) {\n\t\tsuper(stream);\n\t\tthis.contentType = contentType;\n\t}\n\n\tpublic InputStreamBodyProvider(InputStream stream) {\n\t\tthis(\"application/octet-stream\", stream);\n\t}\n\n\t@Override\n\tpublic String getContentType() {\n\t\treturn contentType;\n\t}\n}\n",
+    "target": "httpclient.HttpRequest;\n\n/**\n * @author Marc Klinger - mklinger[at]mklinger[dot]de\n */\npublic class InputStreamBodyProvider extends InputStreamContentProvider implements HttpRequest.BodyProvider, ContentProvider.Typed {\n\tprivate final String contentType;"
+  },
+  {
+    "prefix": "package com.quicksilver.mbe",
+    "suffix": "able;\n\npublic interface RxInteractor<T> {\n\n    Observable<T> getObservable();\n}\n",
+    "target": "attie.rxperiment.domain;\n\nimport rx.Observ"
+  },
+  {
+    "prefix": "public class Nemo extends Fish{\n    Nemo(int age, double weight, String gender, String name) {\n        super();\n        this.age = age;\n        this.kind = \"Clown Fish\";\n        this.weight = weight;\n        this.gender = gender",
+    "suffix": "out.println(\"-- Finding Dory --\");\n    }\n}\n",
+    "target": ";\n        this.name = name;\n        this.colorOfScale = \"orange\";\n    }\n    public void findDory(){\n        System."
+  },
+  {
+    "prefix": "package de.adito.git.impl.ssh;\n\nimport com.google.inject.AbstractModule;\nimport com.google.",
+    "suffix": "2.2018\n */\npublic class AditoSshModule extends AbstractModule\n{\n\n  @Override\n  protected void configure()\n  {\n    install(new FactoryModuleBuilder().build(ISshFactory.class));\n    bind(ISshProvider.class).to(SshProviderImpl.class);\n  }\n}\n",
+    "target": "inject.assistedinject.FactoryModuleBuilder;\n\n/**\n * guice module that defines the bindings for the ssh package\n *\n * @author m.kaspera, 21.1"
+  },
+  {
+    "prefix": "package befaster.solutions.CHK;\n\nimport java.util.Map;\n\npublic class Offer {\n    final Map<Character, Long> items;\n",
+    "suffix": " Basket.characterFrequencies(skus);\n        this.cost = cost;\n    }\n\n    @Override\n    public String toString() {\n        return \"Offer{\" + skus + \", cost=\" + cost + '}';\n    }\n}\n",
+    "target": "    public final int cost;\n    private final String skus;\n\n    public Offer(String skus, int cost) {\n        this.skus = skus;\n        items ="
+  },
+  {
+    "prefix": "package com.data.integration.service.exceptions;\n\n/**\n * This exception can be caused due to error while executing Transformation/Job\n * \n * @author Aniket\n *\n */\npublic class IntegrationActivity",
+    "suffix": "\n\n\tpublic IntegrationActivityExecutionException(Throwable cause) {\n\t\tsuper(cause);\n\t}\n\n\tpublic IntegrationActivityExecutionException(String message, Throwable cause) {\n\t\tsuper(message, cause);\n\t}\n\n\tpublic IntegrationActivityExecutionException(String message, Throwable cause,\n\t\t\tboolean enableSuppression, boolean writableStackTrace) {\n\t\tsuper(message, cause, enableSuppression, writableStackTrace);\n\t}\n\n}\n",
+    "target": "ExecutionException extends Exception {\n\n\t/**\n\t * serial version id\n\t */\n\tprivate static final long serialVersionUID = 1L;\n\n\tpublic IntegrationActivityExecutionException() {\n\t\tsuper();\n\t}\n\n\tpublic IntegrationActivityExecutionException(String message) {\n\t\tsuper(message);\n\t}"
+  },
+  {
+    "prefix": "package org.javaswift.joss.command.shared.identity.tenant;\n\nimport org.codehaus.jackson.annotate.JsonIgnoreProperties;\n\n@Json",
+    "suffix": " public String name;\n\n    public boolean enabled;\n\n}\n",
+    "target": "IgnoreProperties(ignoreUnknown = true)\npublic class Tenant {\n\n    public String id;\n\n   "
+  },
+  {
+    "prefix": "package br.com.zupacademy.hugo.casadocodigo.livro;\n\nimport org.springframework.web.bind.annotation.*;\n\nimport javax.persistence.EntityManager;\nimport javax.persistence.EntityNotFoundException;\nimport javax.persistence.PersistenceContext;\nimport javax.persistence.Query;\nimport javax.transaction.Transactional;\nimport javax.validation.Valid;\nimport java.util",
+    "suffix": "ivro(@RequestBody @Valid LivroRequestDTO livroRequestDTO){\n        Livro livro = livroRequestDTO.toModel(entityManager);\n        entityManager.persist(livro);\n        return livro.toString();\n    }\n}\n",
+    "target": ".List;\nimport java.util.stream.Collectors;\n\n@RestController\n@RequestMapping(\"/livro\")\npublic class LivroController {\n\n    @PersistenceContext\n    private EntityManager entityManager;\n\n    @PostMapping\n    @Transactional\n    public String criarL"
+  },
+  {
+    "prefix": "package com.stylefeng.guns.rest.modular.alipay.vo;\n\npublic class PayStatusVO {\n    Integer status;\n    Object data;\n\n    public Integer getStatus() {\n        return status;\n    }\n\n    public void setStatus(Integer status) {\n        this",
+    "suffix": " PayStatusVO ok(Object data){\n        PayStatusVO payVO = new PayStatusVO();\n        payVO.setData(data);\n        payVO.setStatus(0);\n        return payVO;\n    }\n}\n\n",
+    "target": ".status = status;\n    }\n\n    public Object getData() {\n        return data;\n    }\n\n    public void setData(Object data) {\n        this.data = data;\n    }\n\n    public static"
+  },
+  {
+    "prefix": "package com.solarexsoft.solarexglide.cache;\n\n/**\n * <pre>\n *    Author",
+    "suffix": "pre>\n */\n\npublic interface ArrayPool {\n\n    byte[] get(int len);\n\n    void put(byte[] data);\n\n    void clearMemory();\n\n    void trimMemory(int level);\n\n    int getMaxSize();\n}\n",
+    "target": ": houruhou\n *    CreatAt: 13:37/2020-01-20\n *    Desc:\n * </"
+  },
+  {
+    "prefix": "package de.adito.picoservice.test;\n\n",
+    "suffix": "15\n */\n@TestAnno(2)\npublic class TestAnnotated2 implements ITestAnnotated\n{\n}\n",
+    "target": "/**\n * @author j.boesl, 25.03."
+  },
+  {
+    "prefix": "/**\n * 来源：https",
+    "suffix": " *\n * @author Carry\n * @since 2021/3/11\n */\npackage io.github.sleepingraven.note.practice.consistent_hash;\n",
+    "target": "://www.jianshu.com/p/528ce5cd7e8f\n"
+  },
+  {
+    "prefix": "package com.spring.ex.dto;\n\npublic class placeDTO {\n\tprivate String p_name;\n\tprivate double p_lat;\n\tprivate double p_lng;\n\tprivate int p_num;",
+    "suffix": "(double p_lat) {\n\t\tthis.p_lat = p_lat;\n\t}\n\tpublic double getP_lng() {\n\t\treturn p_lng;\n\t}\n\tpublic void setP_lng(double p_lng) {\n\t\tthis.p_lng = p_lng;\n\t}\n\tpublic int getP_num() {\n\t\treturn p_num;\n\t}\n\tpublic void setP_num(int p_num) {\n\t\tthis.p_num = p_num;\n\t}\n\t\n\n}\n",
+    "target": "\n\tpublic String getP_name() {\n\t\treturn p_name;\n\t}\n\tpublic void setP_name(String p_name) {\n\t\tthis.p_name = p_name;\n\t}\n\t\n\tpublic double getP_lat() {\n\t\treturn p_lat;\n\t}\n\tpublic void setP_lat"
+  },
+  {
+    "prefix": "package tester.api.informe_pago;\n\nimport com.intuit.karate.junit5.Karate;\n\nclass InformeP",
+    "suffix": ".run(\"informe_pago\").relativeTo(getClass());\n    }    \n\n}\n",
+    "target": "ago {\n    \n    @Karate.Test\n    Karate testApi() {\n        return Karate"
+  },
+  {
+    "prefix": "package com.cg.spring.core.demo.aug3;\n\nimport org.springframework.stere",
+    "suffix": " {\n\t\tSystem.out.println(\"Customer buys products...\");\n\t}\n\n}\n",
+    "target": "otype.Component;\n\n@Component\npublic class Customer {\n\n\tpublic void buy()"
+  },
+  {
+    "prefix": "package com.amido.stacks.cosmosdb.repository;\n\nimport com.amido.stacks.core.repository.StacksPersistence;\nimport com.azure.spring.data.",
+    "suffix": " interface StacksCosmosRepository<T>\n    extends StacksPersistence<T>, CosmosRepository<T, String> {}\n",
+    "target": "cosmos.repository.CosmosRepository;\nimport org.springframework.data.repository.NoRepositoryBean;\n\n@NoRepositoryBean\npublic"
+  },
+  {
+    "prefix": "package org.asck.api.repository.model;\n\nimport javax.persistence.*;\n\nimport lombok.AllArgsConstructor;\nimport lombok.Builder;\nimport lombok.Data;\nimport lombok.No",
+    "suffix": "Id\n\t@Column(name = \"id\", unique = true, nullable = false)\n\t@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = \"SEQ_USER_GEN\")\n\tprivate Long id;\n\t\n\t@Column(name = \"email\", length = 40, nullable = false, unique = true)\n\tprivate String email;\n\t\n\t@Column(name = \"password\", length = 100, nullable = false)\n\tprivate String password;\n\t\n\t\n\t\n\t\n\n}\n",
+    "target": "ArgsConstructor;\n\n@Entity(name = \"owner\")\n@Data\n@AllArgsConstructor\n@NoArgsConstructor\n@Builder\n@SequenceGenerator(name = \"SEQ_USER_GEN\", sequenceName = \"SEQ_USER\", allocationSize = 1, initialValue = 5)\npublic class UserTableModel {\n\t\n\t@"
+  },
+  {
+    "prefix": "package ru.example.example2;\n\npublic class Decrementer implements Runnable {\n    private Container container;\n    private int count;\n\n    Decrementer(Container container, int count) {\n        this.count = count;\n        this.container = container;\n    }\n\n    @Override\n    public void run() {\n        System.out.println(\"Decrementer start\");\n        for (int i = 0; i < count; i++) {\n            synchronized (container) {\n                container.value--;\n                System.out.println(\"Decre",
+    "suffix": "er end\");\n    }\n}\n",
+    "target": "menter value=\" + container.value);\n            }\n            try {\n                Thread.sleep(1);\n            } catch (InterruptedException e) {\n                e.printStackTrace();\n            }\n        }\n        System.out.println(\"Decrement"
+  },
+  {
+    "prefix": "package org.docksidestage.postgresql.dbflute.exbhv;\n\nimport org.docksidestage.postgresql.dbflute.bsbhv.BsWhiteNotPkBhv;\n\n/**\n",
+    "suffix": "ute(AutoGenerator)\n */\n@org.springframework.stereotype.Component(\"whiteNotPkBhv\")\npublic class WhiteNotPkBhv extends BsWhiteNotPkBhv {\n}\n",
+    "target": " * The behavior of white_not_pk.\n * <p>\n * You can implement your original methods here.\n * This class remains when re-generating.\n * </p>\n * @author DBFl"
+  },
+  {
+    "prefix": "import java.util.Scanner;\n\n/**\n * @author Oleg Cherednik\n * @since 10.06.2018\n */\npublic class Solution {\n\n    private static String appendAndDelete(String s, String t, int k) {\n        int sum = s.length() + t.length();\n        int length = 0;\n\n        for (int i = 0, min = Math.min(s.length(), t.length()); i < min && s.charAt(i) == t.charAt(i); i++)\n            length++;\n\n        length *= 2;\n\n        if (sum - length > k)\n            return \"No\";\n        if ((sum - length) % 2 == k % 2)\n            return \"",
+    "suffix": "\\u2028\\u2029\\u0085])?\");\n\n        String result = appendAndDelete(s, t, k);\n\n        System.out.println(result);\n\n        scanner.close();\n    }\n}\n",
+    "target": "Yes\";\n        return sum - k < 0 ? \"Yes\" : \"No\";\n    }\n\n    private static final Scanner scanner = new Scanner(System.in);\n\n    public static void main(String[] args) {\n        String s = scanner.nextLine();\n\n        String t = scanner.nextLine();\n\n        int k = scanner.nextInt();\n        scanner.skip(\"(\\r\\n|[\\n\\r"
+  },
+  {
+    "prefix": "package primer04Red;\n\npublic interface Red {\n\t// Dodaje element 'x' na kraj reda.\n\tvoid add(int x);\n\t\n\t// Skida i vraca element sa pocetka reda.\n\tint remove();\n\t\n\t// Vraca element koji se",
+    "suffix": "j elemenata trenutno na redu.\n\tint size();\n\t\n\t// Prikazuje red na standardni izlaz.\n\tvoid prikaziRed();\n}\n",
+    "target": " nalazi na pocetku reda.\n\tint head();\n\n\t// Vraca element koji se nalazi na kraju reda.\n\tint back();\n\t\n\t// Vraca bro"
+  },
+  {
+    "prefix": "package algorithms.array;\n\nimport java.io.InputStream;\nimport java.io.OutputStream;\nimport java.io.PrintStream;\nimport java",
+    "suffix": " scanner = new Scanner(in);\n        PrintStream printer = new PrintStream(out, true);\n        \n        int t = scanner.nextInt();\n        while (t-- > 0) {\n            int n = scanner.nextInt();\n            \n            int sum = 0;\n            for (int i = 0; i < n; i++) {\n                sum += scanner.nextInt();\n            }\n\n            printer.println(n - sum);\n        }\n    }\n}\n",
+    "target": ".util.Scanner;\n\npublic class CountZeros {\n\n    public static void main(String[] args) {\n        run(System.in, System.out);\n    }\n    \n    public static void run(InputStream in, OutputStream out) {\n        Scanner"
+  },
+  {
+    "prefix": "@RequireConfigurator\n@org.osgi.annotation.versioning.Version(\"0.",
+    "suffix": "sling.distribution.service.impl;\n\nimport org.osgi.service.configurator.annotations.RequireConfigurator;",
+    "target": "1.0\")\n@org.osgi.annotation.bundle.Export\npackage org.apache."
+  },
+  {
+    "prefix": "package com.ming.blog.dao.",
+    "suffix": ".Mapper;\nimport org.springframework.stereotype.Repository;\n\nimport java.util.List;\n\n@Mapper\n@Repository\npublic interface UserDao {\n\n    List<User> findAll();\n\n    int insert(User u);\n}\n",
+    "target": "secondary;\n\nimport com.ming.blog.pojo.secondary.User;\nimport org.apache.ibatis.annotations"
+  },
+  {
+    "prefix": "/** fun_endless@163.com  20",
+    "suffix": "Create a REST API service.\r\n * @author aimbin\r\n * @verison 1.0.0 2018年11月28日\r\n */\r\npublic interface RestCreateService {\r\n\r\n}\r\n",
+    "target": "18年11月28日 */\r\npackage org.aimbin.autocoder.service;\r\n\r\n/**"
+  },
+  {
+    "prefix": "package Kattis;\n\nimport java.util.Scanner;\nimport static java",
+    "suffix": " args) {\n\t\tScanner scanner = new Scanner(System.in);\n\t\tint numCases = scanner.nextInt();\n\t\tfor (int i = 0; i < numCases; i++){\n\t\t\tint numToTest = scanner.nextInt();\n\t\t\tif (numToTest == 0){\n\t\t\t\tSystem.out.println(\"1\");\n\t\t\t} else {\n\t\t\t\tSystem.out.println(((int) floor(log10(numToTest))) + 1);\n\t\t\t}\n\t\t\tscanner.nextLine();\n\t\t}\n\t}\n}\n",
+    "target": ".lang.StrictMath.floor;\nimport static java.lang.StrictMath.log10;\n\nclass QuickEstimates {\n\n\t/**\n\t * https://open.kattis.com/problems/quickestimate\n\t */\n\tpublic static void main(String[]"
+  },
+  {
+    "prefix": "package io.mateu.erp.model.product.tour;\n\nimport io.mateu.erp.model.product.transfer.TransferPoint;\nimport io.mateu.erp.model.world.Resort;\nimport lombok.Getter;\nimport lombok.Setter;\n\nimport javax.persistence.*;\nimport java.util.ArrayList;\nimport java.util.List;\n\n@Entity\n@Getter@Setter\npublic class ExcursionPriceZone",
+    "suffix": "\n\n    @ManyToOne\n    private TransferPoint meetingPoint;\n\n}\n",
+    "target": " {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private long id;\n\n    private String name;\n\n    @OneToMany\n    private List<Resort> resorts = new ArrayList<>();"
+  },
+  {
+    "prefix": "package ogr.user12043.taskorger.",
+    "suffix": "NotNull;\n\n/**\n * Created on 27.06.2019 - 23:19\n * part of taskorger\n *\n * @author user12043\n */\n@EqualsAndHashCode(callSuper = true)\n@Data\n@Entity\n@Table(name = \"t_announcement\")\npublic class Announcement extends BaseEntity {\n    @NotNull\n    private String content;\n}\n",
+    "target": "model;\n\nimport lombok.Data;\nimport lombok.EqualsAndHashCode;\n\nimport javax.persistence.Entity;\nimport javax.persistence.Table;\nimport javax.validation.constraints."
+  },
+  {
+    "prefix": "package artistry.repositories;\n\nimport artistry",
+    "suffix": "4jRepository;\nimport org.springframework.stereotype.Repository;\n\n@Repository\npublic interface SonarQubeCoverageReportRepository extends Neo4jRepository<SonarQubeCoverageReport, Long> {\n\n}\n",
+    "target": ".models.SonarQubeCoverageReport;\nimport org.springframework.data.neo4j.repository.Neo"
+  },
+  {
+    "prefix": "package musicalChair;\n\nimport java.util.*;\n\n/**\n * @author Jerry Ngo\n * This class plays the whole musical chair game. \n * It asks for the number of people playing the game and how many round it",
+    "suffix": "\t\t\n\t\tSystem.out.print(\"Drop out every k-th person for k = \");\n\t\tint k = scnr.nextInt();\n\t\t\n\t\tLinkedList game = new LinkedList();\n\t\tgame.setSize(numberOfPlayer);\n\t\tfor(int i = numberOfPlayer; i > 0; --i) {\n\t\t\tgame.insertAtFrontofList(i);\n\t\t}\n\t\t\n\t\twhile(game.getSize() != 1) {\n\t\t\tfor(int i = 0; i < k - 1; ++i) game.goToNextElement();\n\t\t\tgame.removeElement();\n\t\t}\n\t\tSystem.out.format(\"Player #%d wins the game!\", game.getHeadVal());\n\t}\n}\n",
+    "target": " would drop a people.\n * Then, it creates a new linked list object, plays the game and announces the winner. \n */\n\npublic class Driver {\n\n\tpublic static void main(String[] args) {\n\t\tSystem.out.print(\"How many people are plaing musical chairs? \");\n\t\tScanner scnr = new Scanner(System.in);\n\t\tint numberOfPlayer = scnr.nextInt();\n"
+  },
+  {
+    "prefix": "package io.github.tehstoneman.betterstorage.item.cardboard;\n\nimport java.util.List;\n\n",
+    "suffix": "relauncher.Side;\nimport net.minecraftforge.fml.relauncher.SideOnly;\n\npublic class RecipeInputCardboard implements IRecipeInput\n{\n\tpublic static final RecipeInputCardboard instance = new RecipeInputCardboard();\n\n\tprivate RecipeInputCardboard()\n\t{}\n\n\t@Override\n\tpublic int getAmount()\n\t{\n\t\treturn 1;\n\t}\n\n\t@Override\n\tpublic boolean matches( ItemStack stack )\n\t{\n\t\treturn stack.getItem() instanceof ICardboardItem;\n\t}\n\n\t@Override\n\tpublic void craft( ItemStack input, ContainerInfo containerInfo )\n\t{}\n\n\t@Override\n\t@SideOnly( Side.CLIENT )\n\tpublic List< ItemStack > getPossibleMatches()\n\t{\n\t\treturn null;\n\t}\n}",
+    "target": "import io.github.tehstoneman.betterstorage.api.ICardboardItem;\nimport io.github.tehstoneman.betterstorage.api.crafting.ContainerInfo;\nimport io.github.tehstoneman.betterstorage.api.crafting.IRecipeInput;\nimport net.minecraft.item.ItemStack;\nimport net.minecraftforge.fml."
+  },
+  {
+    "prefix": "package com.atlassian.connect.play.java;\n\npublic final class Configuration",
+    "suffix": " {\n        super(s);\n    }\n\n    public ConfigurationException(String message, Throwable cause)\n    {\n        super(message, cause);\n    }\n\n    public ConfigurationException(Throwable cause)\n    {\n        super(cause);\n    }\n}\n",
+    "target": "Exception extends IllegalStateException\n{\n    public ConfigurationException()\n    {\n        super();\n    }\n\n    public ConfigurationException(String s)\n   "
+  },
+  {
+    "prefix": "package com.remotify.exceptions.data;\n",
+    "suffix": "2.14.\n */\npublic class NoSuchComputerException extends Exception {\n}\n",
+    "target": "\n/**\n * Created by User on 28.0"
+  },
+  {
+    "prefix": "package dashboard.pdp",
+    "suffix": "\n\npublic interface PdpService {\n\n  List<Policy> policies();\n\n  Policy policy(Long id);\n\n  Policy create(Policy policy) ;\n\n  Policy update(Policy policy);\n\n  List<Attribute> allowedAttributes();\n\n  ResponseEntity<String> delete(Long id);\n\n  List<Policy> revisions(Long id);\n\n  boolean isAvailable();\n\n}\n",
+    "target": ";\n\nimport java.util.List;\n\nimport org.springframework.http.ResponseEntity;\nimport dashboard.domain.Policy;\nimport dashboard.domain.Policy.Attribute;"
+  },
+  {
+    "prefix": "package ch.squix.extraleague.model.mutations;",
+    "suffix": "Embed;\n\nimport lombok.Data;\n\n@Data\npublic class BadgeMutation implements Serializable {\n\t\n\t/**\n\t * \n\t */\n\tprivate static final long serialVersionUID = 1L;\n\t\n\tprivate String player;\n\tprivate List<String> badges = new ArrayList<>();\n\n}\n",
+    "target": "\n\nimport java.io.Serializable;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport com.googlecode.objectify.annotation."
+  },
+  {
+    "prefix": "package demo01_normalFactory;\n\n/**\n * @author fangjiaxiaobai\n * @date 2017/12",
+    "suffix": "设计模式。\n *\n *\n */\npublic class DemoTest {\n    public static void main(String[] args) {\n        CarFactory.create(\"top\");\n        CarFactory.create(\"mid\");\n        CarFactory.create(\"low\");\n    }\n}\n",
+    "target": "/29\n *      工厂设计模式分为三种：\n *          *普通工厂设计模式。\n *          多工厂设计模式。\n *          静态工厂"
+  },
+  {
+    "prefix": "package dentaku.nocc.lex.regex;\n\n/**\n * 正規表現の0回以上の繰り返しを表す正規表現ノード\n */\npublic class RepeatRegexNode extends RegexNode {\n    private final RegexNode m_node;\n\n    public RepeatRegexNode(RegexNode node) {\n        m_node = node;\n    }\n\n    public RegexNode getNode() {\n        return m_node;\n    }\n\n    @Override\n    public <",
+    "suffix": " }\n}\n",
+    "target": "T> T accept(RegexNodeVisitor<T> visitor) {\n        return visitor.visitRepeatNode(this);\n    }\n\n    @Override\n    public String toString() {\n        return \"(\" + m_node + \")*\";\n   "
+  },
+  {
+    "prefix": "package com.spbsu",
+    "suffix": "LocalRandom;\n\npublic class LabelSpawnJoba extends Joba {\n  private final LabelSpawn<?, ?>.LabelsInUse operation;\n\n  public LabelSpawnJoba(Id id, LabelSpawn<?, ?> flameMap, Iterable<Sink> markers) {\n    super(id);\n    this.operation = flameMap.operation(ThreadLocalRandom.current().nextLong(), markers);\n  }\n\n  @Override\n  public void accept(DataItem item, Sink sink) {\n    sink.accept(operation.apply(item));\n  }\n}\n",
+    "target": ".flamestream.runtime.graph;\n\nimport com.spbsu.flamestream.core.DataItem;\nimport com.spbsu.flamestream.core.graph.LabelSpawn;\n\nimport java.util.concurrent.Thread"
+  },
+  {
+    "prefix": "package",
+    "suffix": "\n\npublic abstract class Union {\n    protected int index;\n    protected Object value;\n\n    public int getIndex() {\n        return index;\n    }\n}\n",
+    "target": " com.strategyobject.substrateclient.common.types.union;"
+  },
+  {
+    "prefix": "package io.tweag.sparkle.function;\n\nimport org.apache.spark.api.java.function.*;\nimport io.tweag.spark",
+    "suffix": " public HaskellFlatMapFunction(final byte[] clos) {\n\tthis.clos = clos;\n    }\n\n    public java.util.Iterator<R> call(T value) throws Exception {\n\treturn Sparkle.apply(clos, value);\n    }\n}\n",
+    "target": "le.Sparkle;\n\npublic class HaskellFlatMapFunction<T, R> implements FlatMapFunction<T, R> {\n    private final byte[] clos;\n\n   "
+  },
+  {
+    "prefix": "package com.jdw.web;\n\nimport java.util.UUID;\n\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.ResponseBody;\n\nimport com.hd.domain.vo.UserInfoVo;\nimport com.hd",
+    "suffix": "Vo();\n    \tuserInfo.setId(UUID.nameUUIDFromBytes(\"jdw\".getBytes()).toString());\n    \tuserInfo.setUserId(UUIDUtils.generateStringUuid());\n    \tuserInfo.setInfo(\"standalone mode info\");\n    \tthis.userInfoService.save(userInfo,null);\n        return \"Hello World! I'm userinfo from test2\";\n    }\n\n}\n",
+    "target": ".interfaces.IUserInfoService;\nimport com.v5ent.distribut.util.UUIDUtils;\n\n@Controller\npublic class TestController {\n\t@Autowired\n\tprivate  IUserInfoService userInfoService;\n    @RequestMapping(\"/\")\n    @ResponseBody\n   public String home() {\n    \tUserInfoVo userInfo=new UserInfo"
+  },
+  {
+    "prefix": "package enums;\n\npublic enum ConditionType {\n\n    NONE",
+    "suffix": "    LESS_THAN\n\n}\n",
+    "target": ",\n    GREATER_THAN,\n"
+  },
+  {
+    "prefix": "package com.earaya.voodoo.rest.validation;\n\nimport java.lang.annotation.ElementType;\nimport java.lang.annotation.Retention;\nimport java.lang.annotation.RetentionPolicy;\nimport java.lang.annotation.Target;\n\n@Retention(Retention",
+    "suffix": " {};\n    Class type();\n}",
+    "target": "Policy.RUNTIME)\n@Target(ElementType.PARAMETER)\npublic @interface Editable {\n    String [] fields() default"
+  },
+  {
+    "prefix": "package com.reactnative",
+    "suffix": "public interface BridgeHandler {\n\tvoid handler(String data, CallBackFunction function);\n}\n",
+    "target": "community.webview.jsbridge;\n\n"
+  },
+  {
+    "prefix": "package com.example",
+    "suffix": ".Logger;\nimport org.slf4j.LoggerFactory;\n\npublic class ExampleStartupHook {    \n    private static final Logger log = LoggerFactory.getLogger(ExampleStartupHook.class);\n\n    @PostConstruct\n    public void afterPropertiesSet() {\n        log.info(\"Example Startup Hook\");\n    }\n\n}",
+    "target": ".datahub.ccv2;\n\nimport java.util.Properties;\nimport javax.annotation.PostConstruct;\n\nimport org.slf4j"
+  },
+  {
+    "prefix": "/*******************************************\n * Author",
+    "suffix": ".github.io\n * Description: HelloWorld.java for homework\n *******************************************/\n\npublic class HelloWorld {\n\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World\");\n    }\n}\n",
+    "target": ": Huang\n * Date: 22.01.11\n * Website: https://huang-feiyu"
+  },
+  {
+    "prefix": "package net.teamhollow.theroofedcanyon.block.helpers.vanilla;\n\nimport net.teamhollow.theroofedcanyon.util.TRCSign;\nimport net.minecraft.block.WallSignBlock;\nimport net.minecraft.util.Identifier;\nimport net.minecraft",
+    "suffix": " super(settings, SignType.OAK);\n        this.texture = texture;\n    }\n\n    @Override\n    public Identifier getTexture() {\n        return texture;\n    }\n}\n",
+    "target": ".util.SignType;\n\npublic class TRCWallSignBlock extends WallSignBlock implements TRCSign {\n    private final Identifier texture;\n\n    public TRCWallSignBlock(Identifier texture, Settings settings) {\n       "
+  },
+  {
+    "prefix": "/*\n * JEF - Copyright 2009-2010 Jiyi (mr.jiyi@gmail.com)\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT",
+    "suffix": " * \t\t(a)描述一个索引字段<BR>\n * \t\t(b)用来描述带函数的查询条件左表达式\n * 3、IConditionField 用来描述一个完整的查询条件。有多种实现\n * 4、RefField: 包含一个实例和一个Field模型字段，用于描述在一个实体的Field中引用另一个实体的Field\n * \n * @author Administrator\n *\n */\npublic interface Field extends Serializable {\n\tpublic String name();\n\n}\n",
+    "target": " WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\npackage jef.database;\n\nimport java.io.Serializable;\n\n/**\n * 用于描述JEF元模型的借口\n * Field有以下实现种类\n * 1、Enum型，即各个实体的元模型字段\n * 2、FBIField 两个作用<BR>\n"
+  },
+  {
+    "prefix": "package de.swm.nis.topology.server.domain;\n\npublic class Node {",
+    "suffix": " id;\n    }\n\n    @Override\n    public String toString() {\n        return \"Node{\" +\n                \"id=\" + id +\n                '}';\n    }\n\n    @Override\n    public boolean equals(Object o) {\n        if (this == o) return true;\n        if (o == null || getClass() != o.getClass()) return false;\n\n        Node node = (Node) o;\n\n        return id == node.id;\n\n    }\n\n    @Override\n    public int hashCode() {\n        return (int) (id ^ (id >>> 32));\n    }\n}\n",
+    "target": "\n\n    private long id;\n\n    public Node(long id) {\n        this.id = id;\n    }\n\n    public Node() {\n    }\n\n    public long getId() {\n        return id;\n    }\n\n    public void setId(long id) {\n        this.id ="
+  },
+  {
+    "prefix": "package aos.framework.core.id;\n\nimport java.math.BigInteger;\n\nimport org.springframework.stereotype.Service;\n\nimport aos.framework.core.service.CDZBaseController;\n\n/**\n * <b>ID生成服务</b>\n * \n * @author xiongchun\n */\n@Service\npublic class IdService extends CDZBaseController{\n\n\t/**\n\t * 获取",
+    "suffix": " val = (BigInteger)sqlDao.selectOne(\"Id.nextVal\", sequenceName);\n\t\treturn val;\n\t}\n\t\n}\n",
+    "target": "DB序列号的nextVal\n\t * <p>注意：目前支持Oracle Sequence、Mysql 自定义函数\n\t * @return\n\t */\n\tpublic BigInteger nextVal(String sequenceName){\n\t\tBigInteger"
+  },
+  {
+    "prefix": "package org.ko.prototype.core.properties;\n\nimport org.springframework.boot.context",
+    "suffix": " private String folder;\n\n    public String getFolder() {\n        return folder;\n    }\n\n    public void setFolder(String folder) {\n        this.folder = folder;\n    }\n}\n",
+    "target": ".properties.ConfigurationProperties;\n\n@ConfigurationProperties(prefix = \"sigma.file\")\npublic class FileProperties {\n\n   "
+  },
+  {
+    "prefix": "package com.keuin.blame.data.enums.codec;\n\nimport com.keuin.blame.data.enums.ObjectType;\nimport org.bson.Bson",
+    "suffix": "BsonReader reader, DecoderContext decoderContext) {\n        return ObjectType.parseInt(reader.readInt32());\n    }\n\n    @Override\n    public Class<ObjectType> getEncoderClass() {\n        return ObjectType.class;\n    }\n}\n",
+    "target": "Reader;\nimport org.bson.codecs.DecoderContext;\n\npublic class ObjectTypeCodec extends AbstractIntegerEnumCodec<ObjectType> {\n    @Override\n    public ObjectType decode("
+  },
+  {
+    "prefix": "package study.daydayup.wolf.business.trade.buy.biz.converter;\n\nimport study.daydayup.wolf.business.trade.api.domain.entity.Order;\nimport study.daydayup.wolf.business.trade.api.dto.buy.base.response.PayResponse;\nimport study.daydayup.wolf.framework.layer.converter.Converter;\n\n/**\n * study.daydayup.wolf.business.trade.order.biz.converter\n *\n * @author",
+    "suffix": ".builder()\n                .tradeNo(order.getTradeNo())\n                .amount(order.getAmount())\n                .build();\n    }\n}\n",
+    "target": " Wingle\n * @since 2020/3/5 4:04 下午\n **/\npublic class OrderConverter implements Converter {\n    public static PayResponse toPayResponse(Order order) {\n        if (order == null) {\n            return null;\n        }\n\n        return PayResponse"
+  },
+  {
+    "prefix": "package com.ashish.abstractFactoryDesign",
+    "suffix": "ape {\n\t\n\tvoid draw();\n\n}\n",
+    "target": "Pattern.shape;\n\npublic interface Sh"
+  },
+  {
+    "prefix": "package us.ihmc",
+    "suffix": "olver<DenseMatrix64F> solver;\n   private final DenseMatrix64F jacobianMatrix;\n   \n   public InverseJacobianSolver(int matrixSize)\n   {\n      solver = new LinearSolverSafe<DenseMatrix64F>(LinearSolverFactory.leastSquaresQrPivot(true, false));\n      jacobianMatrix = new DenseMatrix64F(matrixSize, matrixSize);\n   }\n\n   @Override\n   public void solve(DenseMatrix64F solutionToPack, DenseMatrix64F vector)\n   {\n      if (!solver.setA(jacobianMatrix))\n         throw new RuntimeException(\"jacobian is singular\");\n      solver.solve(vector, solutionToPack);\n   }\n\n   @Override\n   public void setJacobian(DenseMatrix64F jacobianMatrix)\n   {\n      this.jacobianMatrix.set(jacobianMatrix);      \n   }\n}\n",
+    "target": ".robotics.screwTheory;\n\nimport org.ejml.alg.dense.linsol.LinearSolverSafe;\nimport org.ejml.data.DenseMatrix64F;\nimport org.ejml.factory.LinearSolverFactory;\nimport org.ejml.interfaces.linsol.LinearSolver;\n\npublic class InverseJacobianSolver implements JacobianSolver\n{\n   private final LinearS"
+  },
+  {
+    "prefix": "package seedu.address.model.reminder;\n\nimport java.",
+    "suffix": " {\n    /**\n     * Returns an unmodifiable view of the reminder list.\n     * This list will not contain any duplicate reminders.\n     */\n    List<Reminder> getAllReminders();\n}\n",
+    "target": "util.List;\n\n/**\n * Unmodifiable view of all Reminders.\n */\npublic interface ReadOnlyReminder"
+  },
+  {
+    "prefix": "package com.legyver.fenxlib.widgets.snackbar.alert;\n\nimport com.jfoenix.controls.JFXDialog;\nimport com.legyver.fenxlib.core.api.alert.IAlert;\nimport com.legyver.fenxlib.widgets.",
+    "suffix": "\n     * @param snackbar the widget displaying the alert data\n     * @param transition the transition\n     */\n    public SnackbarAlert(Snackbar snackbar, DialogTransition transition) {\n        super(null, snackbar, transition);\n    }\n\n}\n",
+    "target": "snackbar.Snackbar;\n\n/**\n * Tie in the default JFXDialog with the alert service\n */\npublic class SnackbarAlert extends JFXDialog implements IAlert {\n    /**\n     * Construct a dialog to display an alert in."
+  },
+  {
+    "prefix": "package pw.cdmi.aws.edu.common.utils;\n\nimport java.util.HashSet;\nimport java.util.Set;\n\nimport org.springframework.beans.BeanWrapper;\nimport org.springframework.beans.BeanWrapperImpl;\n\npublic class PropUtil {\n\n\t/**\n     * 拷贝属性，但不适用null替换原属性\n     * @param source 源\n     * @return String[]\n     */\n    public static String[] getNullPropNames (Object source) {\n        final BeanWrapper src = new BeanWrapperImpl(source);\n        java.beans.PropertyDescriptor[] pds = src.getPropertyDescript",
+    "suffix": "        String[] result = new String[emptyNames.size()];\n        return emptyNames.toArray(result);\n    }\n}\n",
+    "target": "ors();\n\n        Set<String> emptyNames = new HashSet<>();\n        for(java.beans.PropertyDescriptor pd : pds) {\n            Object srcValue = src.getPropertyValue(pd.getName());\n            if (srcValue == null) {\n                emptyNames.add(pd.getName());\n            }\n        }\n"
+  },
+  {
+    "prefix": "package de.mhens.events.eventconsumer.elastic;\n\nimport org.elasticsearch.client.RestHighLevelClient;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.data.elasticsearch.client.RestClientFactoryBean;\nimport org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;\nimport org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;\n",
+    "suffix": " ElasticsearchRestTemplate elasticsearchTemplate() throws Exception {\n\t\treturn new ElasticsearchRestTemplate(client());\n\t}\n\t\n\t@Bean\n\tpublic RestClientFactoryBean factory() {\n\t\tRestClientFactoryBean factory = new RestClientFactoryBean();\n\t\treturn factory;\n\t}\n}\n",
+    "target": "\n@EnableElasticsearchRepositories(basePackages = \"de.mhens.events.eventconsumer\")\n@Configuration\npublic class ElasticSearchIntegrationConfiguration {\n\t \n    @Bean\n    public RestHighLevelClient client() throws Exception {\n        return factory().getObject();\n    }\n\t\n\t@Bean\n\tpublic"
+  },
+  {
+    "prefix": "package org.openstack4j.model.barbican;\r\n\r\nimport org.openstack4j.common.Buildable;\r\nimport org.openstack4j.model.ModelEntity;\r\nimport org.openstack4j.model.barbican.builder.ContainerSecretBuilder;\r\n\r\n/**\r",
+    "suffix": " */\r\n    String getName();\r\n\r\n    /**\r\n     * @return Full URI reference to the secret.\r\n     */\r\n    String getReference();\r\n}\r\n",
+    "target": "\n * A secret associated to a container.\r\n */\r\npublic interface ContainerSecret extends ModelEntity, Buildable<ContainerSecretBuilder> {\r\n    /**\r\n     * @return the name of the secret.\r\n    "
+  },
+  {
+    "prefix": "import java.util.*;\nimport java.lang.reflect.*;\n\naspect Foo {\n\n   public List",
+    "suffix": ";\n   }\n}\n\nclass GenericsLost2 {\n}\n\t",
+    "target": "<String> GenericsLost2.getStrings() {\n     return null"
+  },
+  {
+    "prefix": "package me.drkmatr1984.storageapi.objects.ent",
+    "suffix": "\n{\n\n\t/**\n\t *    Constructor for serializable LivingEntity\n\t */\n\t\n\tprivate static final long serialVersionUID = -173277463815933569L;\n\n\tpublic SLivingEntity(LivingEntity entity) {\n\t\tsuper(entity);\n\t}\n\t\n\tpublic SLivingEntity(LivingEntity entity, Entity killingEntity) {\n\t\tsuper(entity, killingEntity);\n\t}\n\t\n}",
+    "target": "ities;\n\nimport java.io.Serializable;\n\nimport org.bukkit.entity.Entity;\nimport org.bukkit.entity.LivingEntity;\n\npublic class SLivingEntity extends SEntityBase implements Serializable "
+  },
+  {
+    "prefix": "package hello;\n\nimport java.util.Scanner;\npublic class star1 {\n\n\tpublic static void main(String[] args) {\n\t\t// TODO Auto-generated method stub\n\n\n\t\t\tint line;\n\t        Scanner input = new Scanner(System.in);\n\t        \n\t     \n\t        line = input.nextInt();\n\t        \n\t        for(int i=0; i<line; i++) {\n\t            for(int j=",
+    "suffix": "}\n\n",
+    "target": "0; j<=i; j++) {\n\t                System.out.print(\"*\");\n\t            }\n\t            System.out.println();\n\t        }\n\n\t\t\n\t}\n\n"
+  },
+  {
+    "prefix": "package com.bt.pi.core.application;\n\nimport java.util.HashMap;\n\npublic class InstrumentedEchoApplication extends EchoApplication {\n\n    public static HashMap<String, String> departedNodesHash = new HashMap<String, String>();\n    public static int detectionCount;\n\n    public void handleNodeDeparture(String node",
+    "suffix": "Full());\n    };\n\n}\n",
+    "target": "Id) {\n        System.err.println(\"Handling node departure\");\n        detectionCount++;\n        departedNodesHash.put(nodeId, this.getNodeId"
+  },
+  {
+    "prefix": "/**\n * The contents of this file are subject to the license and copyright\n * detailed in the LICENSE and NOTICE files at the root of the source\n * tree and available online at\n *\n * http://www.dspace.org/license/\n */\npackage org.dspace.example.impl;\n\nimport org.dspace.example.Example;\n\n/**\n",
+    "suffix": "\n",
+    "target": " * This class serves as an example of how & where to add local customizations to the DSpace REST API.\n */\npublic class ExampleImpl implements Example {\n}"
+  },
+  {
+    "prefix": "package hello;\n\nimport org.springframework.web.bind.annotation.",
+    "suffix": "public class APIController {\n\n    @RequestMapping(\"/user\")\n    public UserInfo user() {\n\treturn new UserInfo(\"pepe\", 0);\n    }\n\n}",
+    "target": "RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\n"
+  },
+  {
+    "prefix": "package org.marble.model.model;\n\nimport java.util.Map;\nimport java.util.TreeMap;\n\npublic class PlotterInput {\n    private String topicName;\n    private Map<String, Object> options = new TreeMap<>();\n    \n    public String getTopicName() {\n        return topicName;\n    }\n\n    public void setTopicName(String topicName) {\n        this.topicName = topicName;\n    }\n\n    public Map<String, Object> get",
+    "suffix": ") {\n        return options.put(key, value);\n    }\n\n    @Override\n    public String toString() {\n        return \"PlotterInput [topicName=\" + topicName + \", options=\" + options + \"]\";\n    }\n\n\n}\n",
+    "target": "Options() {\n        return options;\n    }\n    \n    public Object getOption(String key) {\n        return options.get(key);\n    }\n\n    public void setOptions(Map<String, Object> options) {\n        this.options = options;\n    }\n    \n    public Object setOption(String key, Object value"
+  },
+  {
+    "prefix": "/*\n * This file is part of Nucleus, licensed under the MIT License (MIT). See the LICENSE.txt file\n * at the root of this project for more details.\n */\npackage io.github.nucleuspowered.nucleus.modules.mail;\n\nimport io.github.nucleuspowered.nucleus.api.service.NucleusMailService;\nimport io.github.nucleuspowered.nucleus.internal.annotations.",
+    "suffix": ".ModuleData;\n\n@RegisterService(value = MailHandler.class, apiService = NucleusMailService.class)\n@ModuleData(id = \"mail\", name = \"Mail\")\npublic class MailModule extends StandardModule {\n}\n",
+    "target": "RegisterService;\nimport io.github.nucleuspowered.nucleus.internal.qsml.module.StandardModule;\nimport io.github.nucleuspowered.nucleus.modules.mail.handlers.MailHandler;\nimport uk.co.drnaylor.quickstart.annotations"
+  },
+  {
+    "prefix": "/****************************************************************************",
+    "suffix": "\n * @param <T> the type of input object.\n * \n * @author Haifeng Li\n */\npublic interface Feature <T> {\n    /**\n     * Returns the variable attributes of generated features.\n     * Note that these are NOT the original variable attributes of objects.\n     * @return the variable attributes of generated features\n     */\n    public Attribute[] attributes();\n    \n    /**\n     * Generates a feature for given object.\n     * @param object an object of interest.\n     * @param id the index of feature to be generated.\n     * @return a feature value.\n     */\n    public double f(T object, int id);\n}\n",
+    "target": "**\n *                   Confidential Proprietary                                 *\n *         (c) Copyright Haifeng Li 2011, All Rights Reserved                 *\n ******************************************************************************/\n\npackage smile.feature;\n\nimport smile.data.Attribute;\n\n/**\n * Feature generator.\n * "
+  },
+  {
+    "prefix": "package com.github.zhuyizhuo.annotation;\n\nimport org.springframework.boot.context.properties.",
+    "suffix": "ConfigurationProperties(\"demo\")\npublic class ListConfig {\n\n    private List<String> list;\n\n    public List<String> getList() {\n        return list;\n    }\n\n    public void setList(List<String> list) {\n        this.list = list;\n    }\n\n}\n",
+    "target": "ConfigurationProperties;\nimport org.springframework.context.annotation.Configuration;\n\nimport java.util.List;\n\n/**\n * list 注入示例\n */\n@Configuration\n@"
+  },
+  {
+    "prefix": "package com.example.csc.myapplication.network;\n\nimport com.example.csc.myapplication.bean.JsonBean;\n\nimport okhttp3.ResponseBody;\nimport retrofit2.Call;\nimport retrofit2.http.POST;\n\n/**\n * 作者：陈思村 on 2018/5/25.\n * 邮箱：chensicun@51ganjie.com\n */\npublic interface RequestUrlInterface {",
+    "suffix": "}\n",
+    "target": "\n    String BASE_URL=\"https://dev.51ganjie.cn/\";\n\n    @POST(\"/app/animation/queryAnimation.do\")\n    Call<ResponseBody>getWelcome();\n"
+  },
+  {
+    "prefix": "package com.leanstacks.hellojwt.web.api;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.MediaType;\nimport org.springframework.http.ResponseEntity;\n",
+    "suffix": "ingController {\n\n    @RequestMapping(method = RequestMethod.GET,\n            produces = MediaType.APPLICATION_JSON_VALUE)\n    public ResponseEntity<List<Greeting>> getGreetings() {\n\n        final List<Greeting> greetings = new ArrayList<Greeting>();\n\n        greetings.add(new Greeting(\"Hello World\"));\n        greetings.add(new Greeting(\"Hola Mundo\"));\n\n        return new ResponseEntity<List<Greeting>>(greetings, HttpStatus.OK);\n\n    }\n\n}\n",
+    "target": "import org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RequestMethod;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport com.leanstacks.hellojwt.model.Greeting;\n\n@RestController\n@RequestMapping(\"/api/u/greetings\")\npublic class Greet"
+  },
+  {
+    "prefix": "package com.ajgaonkar.leetcode;\n\nimport java.util.Stack;\n\n//ToDo: Redo\npublic class LC114_Flatten_Binary_Tree_To_Linked_List {\n\tpublic static class TreeNode {\n\t\tint val;\n\t\tTreeNode left;\n\t\tTreeNode right;\n\n\t\tTreeNode(int x) {\n\t\t\tval = x;\n\t\t}\n\t}\n\n\tprivate void populateStack(TreeNode node, Stack<TreeNode> stack) {\n\t\tif (node == null) {\n",
+    "suffix": " null;\n\t\twhile (!stack.isEmpty()) {\n\t\t\tTreeNode current = stack.pop();\n\t\t\tif (past != null) {\n\t\t\t\tcurrent.right = past;\n\t\t\t\tcurrent.left = null;\n\t\t\t}\n\t\t\tpast = current;\n\t\t}\n\t\treturn;\n\t}\n}\n",
+    "target": "\t\t\treturn;\n\t\t}\n\t\tstack.push(node);\n\t\tpopulateStack(node.left, stack);\n\t\tpopulateStack(node.right, stack);\n\t}\n\n\tpublic void flatten(TreeNode root) {\n\t\tStack<TreeNode> stack = new Stack<>();\n\t\tpopulateStack(root, stack);\n\t\tTreeNode past ="
+  },
+  {
+    "prefix": "package org.cloudfoundry.multiapps.controller.web.configuration.service;\n\nimport org.springframework.cloud.service.BaseServiceInfo;\nimport org.springframework.cloud.service.ServiceInfo.ServiceLabel;\n\n@ServiceLabel(\"user-provided\")\npublic class DynatraceServiceInfo extends BaseServiceInfo {\n\n    private final String micrometerUrl;\n    private final String micrometerToken;\n\n    public DynatraceServiceInfo(String id, String micrometerUrl, String micrometerToken) {\n        super(id);\n        this.micrometer",
+    "suffix": " return micrometerToken;\n    }\n\n}\n",
+    "target": "Url = micrometerUrl;\n        this.micrometerToken = micrometerToken;\n    }\n\n    public String getMicrometerUrl() {\n        return micrometerUrl;\n    }\n\n    public String getMicrometerToken() {\n       "
+  },
+  {
+    "prefix": "package com.alibaba.dubbo.demo;\n\n\n/**\n * Created by HuQingmiao on ",
+    "suffix": "\n    String sayHello(String name);\n}\n\n",
+    "target": "2015/4/7.\n */\npublic interface HelloService {"
+  },
+  {
+    "prefix": "package spring.examples.ehcache.service;\n\nimport lombok.extern.slf4j.Slf4j;\nimport org.springframework.cache.annotation.CacheEvict;\nimport org.springframework.stereotype.Service;\n\n@Slf4j\n@Service\npublic class CacheServiceImpl implements Cache",
+    "suffix": "All() {\n        log.debug(\"清除所有缓存\");\n    }\n\n}\n",
+    "target": "Service {\n\n    @Override\n    @CacheEvict(allEntries = true,\n            cacheNames = {\n                    \"default\"\n            })\n    public void evict"
+  },
+  {
+    "prefix": "package org.frc5587.robot2018.commands.auto;\n\nimport org.frc5587.robot2018.commands.drive.GyroCompMPRunner;\nimport org.frc5587.robot2018.commands.elevator.ElevatorToSetpoint;\nimport org.frc5587.robot2018.commands.grabber.ShootCube;\nimport org.frc5587.robot2018.subsystem",
+    "suffix": "));\n        addSequential(new GyroCompMPRunner(\"RightToRightSwitchOutside\"), 5);\n        addSequential(new ShootCube());\n    }\n}",
+    "target": "s.Elevator.HeightLevels;\n\nimport edu.wpi.first.wpilibj.command.CommandGroup;\n\npublic class RightToRightSwitchOutside extends CommandGroup{\n    public RightToRightSwitchOutside() {\n        addParallel(new ElevatorToSetpoint(HeightLevels.SWITCH"
+  },
+  {
+    "prefix": "import java.util.EnumSet;\n\n/**\n * RomanLetter.class \n *\n * content all characters allow to Roman number\n *\n * @author  Abel Ticona\n * @version 1.0\n * @since   2020\n *\n */\n\npublic enum RomanLetter {\n\n  I(1), V(5), X(10), L(50), C(100), D(500), M(1000);\n\n  private int number;\n  private char letter;\n\n  public static final EnumSet<RomanLetter> all = EnumSet.allOf(RomanLetter.class);\n\n  RomanLetter(int number) {\n    this.number = number;\n    this.letter = this.name().charAt(0);\n  }\n\n  public int number() {\n",
+    "suffix": "();\n  }\n}",
+    "target": "    return this.number;\n  }\n\n  public char letter() {\n    return this.letter;\n  }\n\n  public static RomanLetter valueOf(char letter) {\n    return all.stream().filter(l -> l.letter == letter).findAny().orElse(null);\n  }\n\n  public static String printAll() {\n    return all.toString"
+  },
+  {
+    "prefix": "package com.liveaction.reactiff.server.internal.utils;\n\nimport com.google.common.reflect.TypeToken;\nimport com.liveaction.reactiff.api.server.Result;\nimport org.assertj.core.api.Assertions;\nimport org.junit.Test;\nimport reactor.core.publisher.Mono;\n\n\npublic class ResultUtilsTest {\n    @Test\n    public void shouldConvertVoid() {\n        Mono<Result> resultMono = ResultUtils.toResult(new TypeToken<Void>() {\n        }, null);\n        Assertions.assertThat(resultMono",
+    "suffix": "Null();\n    }\n}",
+    "target": ".block().data()).isNull();\n\n        resultMono = ResultUtils.toResult(new TypeToken<Mono<Void>>() {\n        }, Mono.empty());\n        Result block = resultMono.block();\n        Assertions.assertThat(block.data()).is"
+  },
+  {
+    "prefix": "package com.qxcmp.web.view.modules.dropdown.item;\n\nimport lombok.Getter;\nimport lombok.Setter;\n\n/**\n * 搜索输入框\n */\n@Getter\n@Setter\npublic class InputItem extends AbstractDropdownItem implements DropdownItem {\n\n    /**\n     * 占位符\n     */\n    private String placeholder;\n\n    /**\n     * 搜索图标是否在左边\n     */\n    private boolean leftIcon;\n\n    public InputItem(String",
+    "suffix": "Icon ? \"left\" : \"\";\n    }\n\n    @Override\n    public String getClassSuffix() {\n        return \"icon search input\";\n    }\n\n    public InputItem setLeftIcon() {\n        setLeftIcon(true);\n        return this;\n    }\n}\n",
+    "target": " placeholder) {\n        this.placeholder = placeholder;\n    }\n\n    @Override\n    public String getFragmentName() {\n        return \"item-input\";\n    }\n\n    @Override\n    public String getClassPrefix() {\n        return \"ui\";\n    }\n\n    @Override\n    public String getClassContent() {\n        return left"
+  },
+  {
+    "prefix": "package p005cm.aptoide.p006pt.comments.view;\n\nimport p005cm.aptoide.p006pt.comments.CommentAdder;\nimport p005cm.aptoide.p006pt.dataprovider.interfaces.SuccessRequestListener;\nimport p005cm.aptoide.p006pt.dataprovider.model.p009v7.ListComments;\n\n/* renamed from: cm.aptoide.pt.comments.view.J */\n/* compiled from: lambda */\npublic final /* synthetic */ class C2664J implements SuccessRequestListener {\n\n    /* renamed from: a */\n    private final /* synthetic */ RateAndReviewCommentWidget f5832a;\n\n    /* renamed from: b */\n    private final /* synthetic */ CommentAdder",
+    "suffix": "1617a(this.f5833b, (ListComments) obj);\n    }\n}\n",
+    "target": " f5833b;\n\n    public /* synthetic */ C2664J(RateAndReviewCommentWidget rateAndReviewCommentWidget, CommentAdder commentAdder) {\n        this.f5832a = rateAndReviewCommentWidget;\n        this.f5833b = commentAdder;\n    }\n\n    public final void call(Object obj) {\n        this.f5832a.mo1"
+  },
+  {
+    "prefix": "/**\n * Spring Social's Service API for Keycl",
+    "suffix": ".social.keycloak.api;\n",
+    "target": "oak\n */\npackage org.springframework"
+  },
+  {
+    "prefix": "/*\n * Created on Mar 5, 2007\n */\npackage gov.fnal.elab;\n\n/**\n * Thrown when a required property was not specified in any of the properties",
+    "suffix": " props) {\n        super(\"Missing required property (\" + name + \") for \" + props);\n    }\n}\n",
+    "target": "\n * files. \n */\npublic class MissingPropertyException extends RuntimeException {\n    public MissingPropertyException(String name, String"
+  },
+  {
+    "prefix": "package net.sourceforge.kolmafia.textui.langserver.workspaceservice;\n\nimport net.sourceforge.kolmafia.textui.",
+    "suffix": "services.WorkspaceService;\n\npublic abstract class AshWorkspaceService implements WorkspaceService {\n  protected final AshLanguageServer parent;\n\n  public AshWorkspaceService(final AshLanguageServer parent) {\n    this.parent = parent;\n  }\n\n  public final void setCapabilities(final ServerCapabilities capabilities) {}\n\n  @Override\n  public void didChangeConfiguration(DidChangeConfigurationParams params) {}\n\n  @Override\n  public void didChangeWatchedFiles(DidChangeWatchedFilesParams params) {}\n}\n",
+    "target": "langserver.AshLanguageServer;\nimport org.eclipse.lsp4j.DidChangeConfigurationParams;\nimport org.eclipse.lsp4j.DidChangeWatchedFilesParams;\nimport org.eclipse.lsp4j.ServerCapabilities;\nimport org.eclipse.lsp4j."
+  },
+  {
+    "prefix": "/*\n *\n *  * Copyright 2020 New Relic Corporation. All rights reserved.\n *  * SPDX-License-Identifier: Apache-2.0\n *\n */\n\npackage org.springframework.web.reactive.function.client;\n\nimport com.newrelic.api.agent.weaver.MatchType;\nimport com.newrelic.api.agent.weaver.Weave;\nimport com.newrelic.api.agent.weaver.Weaver;\nimport com.nr.agent.instrumentation.spring_webclient.Util;\nimport reactor.core.publisher.Mono;\n\n@Weave(type = MatchType.Interface, originalName = \"org.springframework.web.reactive.function.client.WebClient\")\npublic class WebClient_Instrumentation {\n\n   ",
+    "suffix": "<?>) this);\n\n            return Weaver.callOriginal();\n        }\n   }\n}\n",
+    "target": " @Weave(type = MatchType.Interface, originalName = \"org.springframework.web.reactive.function.client.WebClient$RequestHeadersSpec\")\n    public abstract static class RequestHeadersSpec_Instrumentation<S extends RequestHeadersSpec_Instrumentation<S>> {\n\n        public Mono<ClientResponse> exchange() {\n\n            Util.startExternalSegmentIfNeeded((WebClient.RequestHeadersSpec"
+  },
+  {
+    "prefix": "/**\n * Copyright (c) 2016, 2019, Oracle and/or its affiliates. All rights reserved.\n */\npackage com.oracle.bmc.auth.exception;\n\nimport com.oracle.bmc.model.BmcException;\n",
+    "suffix": " * @param cause BMC exception that indicated this is an authentication client exception\n     */\n    public AuthClientException(String message, BmcException cause) {\n        super(\n                cause.getStatusCode(),\n                cause.getServiceCode(),\n                message,\n                cause.getOpcRequestId(),\n                cause);\n    }\n}\n",
+    "target": "\n/**\n * Authentication client exception.\n */\npublic class AuthClientException extends BmcException {\n    private static final long serialVersionUID = 1L;\n\n    /**\n     * Create a wrapper around an authentication client exception.\n     * @param message message\n    "
+  },
+  {
+    "prefix": "package com.qtxln.order;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.",
+    "suffix": ";\n\n@SpringBootApplication\n@EnableDiscoveryClient\n@EnableFeignClients\npublic class BsServiceOrderApplication {\n\n    public static void main(String[] args) {\n        SpringApplication.run(BsServiceOrderApplication.class, args);\n    }\n}\n",
+    "target": "springframework.cloud.client.discovery.EnableDiscoveryClient;\nimport org.springframework.cloud.openfeign.EnableFeignClients;\nimport org.springframework.scheduling.annotation.EnableAsync"
+  },
+  {
+    "prefix": "package de.qualityminds.rd.bdd.spring;\n\nimport org.springframework.boot.context.properties.",
+    "suffix": ".config.TestProperties;\n\n@ComponentScan(\"de.qualityminds.rd.bdd\")\n@EnableConfigurationProperties({TestProperties.class})\npublic class SpringConfig {\n}\n",
+    "target": "EnableConfigurationProperties;\nimport org.springframework.context.annotation.ComponentScan;\n\nimport de.qualityminds.rd.bdd"
+  },
+  {
+    "prefix": "public class Leetcode703\r\n{\r\n",
+    "suffix": "(int n:a)\r\n            add(n);\r\n    }\r\n    \r\n    public int add(int n) {\r\n        if(q.size()<k)\r\n            q.offer(n);\r\n        else if (q.peek()<n)\r\n        {\r\n            q.poll();\r\n            q.offer(n);\r\n        }\r\n        return q.peek();\r\n    }\r\n}\r\n\r\n/**\r\n * Your KthLargest object will be instantiated and called as such:\r\n * KthLargest obj = new KthLargest(k, nums);\r\n * int param_1 = obj.add(val);\r\n */",
+    "target": "    //...\r\n}\r\nclass KthLargest {\r\n    final PriorityQueue<Integer> q;\r\n    final int k;\r\n    public KthLargest(int k, int[] a) {\r\n        this.k=k;\r\n        q=new PriorityQueue<>(k);\r\n        for"
+  },
+  {
+    "prefix": "package gutta.apievolution.javacodegen;\n\nimport java.util.Collection;\nimport java.util.List;\n\nclass JavaModel {\n\n    public final Collection<JavaUserDefinedType> userDefinedTypes;\n\n    public final List<JavaService> services;\n\n    JavaModel(Collection<JavaUserDefinedType> userDefined",
+    "suffix": "\n}\n",
+    "target": "Types, List<JavaService> services) {\n        this.userDefinedTypes = userDefinedTypes;\n        this.services = services;\n    }\n"
+  },
+  {
+    "prefix": "package com.evan.androidopengl.render;\n\nimport android.content.Context;\nimport android.opengl.GLES20;\nimport android.opengl.GLSurfaceView;\nimport android.util.Log;\nimport android.view.View",
+    "suffix": "RenderMode;\n\n    public GLRender(GLSurfaceView view) {\n        this.mRenderMode = GLSurfaceView.RENDERMODE_WHEN_DIRTY;\n        this.mView = view;\n    }\n\n    // 子类按照需要实现\n    public void onResume() { }\n\n    // 子类按照需要实现\n    public void onPause() { }\n}\n",
+    "target": ";\n\n\n/**\n * Created by Evan on 2018/1/25.\n */\n\npublic abstract class GLRender implements GLSurfaceView.Renderer {\n    private static final String Tag = \"GLRender\";\n    protected GLSurfaceView mView;\n    protected int m"
+  },
+  {
+    "prefix": "package com.suncht.wordread.format;\r\n\r\nimport com.suncht.wordread",
+    "suffix": " @author changtan.sun\r\n *\r\n */\r\npublic interface ICellFormater {\r\n\tpublic Object format(WordTableCellContent<?> cellContent);\r\n\t\r\n}\r\n",
+    "target": ".model.WordTableCellContent;\r\n\r\n/**\r\n * 单元格数据格式化接口\r\n *"
+  },
+  {
+    "prefix": "import java.util.Scanner;\n\nclass TestDate\n{\n\tpublic static void main(String[] args)\n\t{\n\t\tScanner cin = new Scanner(System.in);\n\t\tSystem.out.print(\"Jour : \");\n\t\tint j = cin.nextInt();\n\t\tSystem.out.print(\"Mois : \");\n\t\tint m = cin.nextInt();\n\t\tSystem.out.print(\"Annee : \");\n\t\tint a = cin.nextInt();\n\t\tDate d1 = new Date(j, m, a);\n\t\tDate d2 = new Date();\n\n\t\td2.setDay(d1.getDay());\n\t\td2.setMonth(d1.getMonth());\n\t\td2.setYear(d1.getYear());\n\n\t\tSystem.out.println",
+    "suffix": ".afficher();\n\t}\n}",
+    "target": "(d1);\n\t\td2.afficher();\n\n\t\tDate d3 = new Date(30, 2, 2003);\n\t\td3.afficher();\n\t\td3.setDay(29);\n\t\td3.afficher();\n\t\td3.setMonth(20);\n\t\td3"
+  },
+  {
+    "prefix": "package com.xsw.neo.service.common.annotation;\n\nimport java.lang.annotation.ElementType;\nimport java.lang.annotation.Retention;\nimport java.lang.annotation.RetentionPolicy;\nimport java.lang.annotation.Target;\n\n/**\n * @author xueshengwen\n * @since ",
+    "suffix": "标题栏\n     *\n     * @return 国际化标题配置\n     */\n    String title() default \"zh-cn\";\n\n    /**\n     * 国际化值\n     *\n     * @return 国际化值\n     */\n    String value();\n}\n",
+    "target": "2021/5/21 11:01\n */\n@Retention(RetentionPolicy.RUNTIME)\n@Target(ElementType.FIELD)\npublic @interface I18nFieldAnnotation {\n\n    /**\n     * 国际化"
+  },
+  {
+    "prefix": "package com.jibug.frpc.common.model;\n\n/**\n * @author heyingcai\n */\npublic interface Invoker<T> {\n\n    T waitResult(long timeoutMillis",
+    "suffix": ");\n\n    long contextId();\n\n    boolean isDone();\n\n}\n",
+    "target": ") throws InterruptedException;\n\n    T waitResult() throws InterruptedException;\n\n    void putResult(T t"
+  },
+  {
+    "prefix": "package com.github.chenjianjx.ssioextsample.spi.clientexternal.base64csv;\n\npublic interface Base64SpiConstants {\n    String BASE64_CSV_FILE",
+    "suffix": " = ',';\n}\n\n",
+    "target": "_TYPE = \"Base64Csv\";\n    char DEFAULT_CSV_CELL_SEPARATOR"
+  },
+  {
+    "prefix": "package org.sunbird.ruleengine.service;\n\n\n\n\n",
+    "suffix": ".service.GenericService;\n\npublic interface AbstractPermissionService<T extends AbstractPermission, U extends AbstractPermission> extends GenericService<T, U> {\n\n}\n",
+    "target": "import org.sunbird.ruleengine.model.AbstractPermission;\nimport org.sunbird.ruleengine"
+  },
+  {
+    "prefix": "package no.bankaxept.epayment.client.base.http;\n\n\n",
+    "suffix": "\npublic interface HttpClient {\n    Flow.Publisher<HttpResponse> post(String uri, Flow.Publisher<String> bodyPublisher, Map<String, List<String>> headers);\n}\n",
+    "target": "import java.util.List;\nimport java.util.Map;\nimport java.util.concurrent.Flow;\n"
+  },
+  {
+    "prefix": "package frontend",
+    "suffix": " interface IControllableView {\n\n\tpublic IViewController getController();\n\t\n}\n",
+    "target": ".nonfxml.view;\n\npublic"
+  },
+  {
+    "prefix": "public class Hm\n{\n  public static void",
+    "suffix": " Cristian J. Chacaltana Fajardo - FIS 2016'\n  } \n} //Fin de la clase Hm\n\n/*\n * Ejercicio N° 1\n * Escriba un programa que imprima en la pantalla su nombre completo en una línea y en la linea siguiente se fecha de nacimeitno\n * y en la línea siguiente su fecha de nacimiento.\n */\n \n \n /*\n * Ejercicio N° 1\n * Escriba un programa que imprima en la pantalla su nombre completo en una línea y en la línea siguiente su fecha de nacimiento.\n */\n",
+    "target": " main(String args[])\n  {\n    System.out.print(\"Facultad de Ingenieria de Sistemas\");\n    System.out.print(\"Alumno: Cristian J. Chacaltana Fajardo\");\n    \n    'Derecho Reservado de"
+  },
+  {
+    "prefix": "package com.onesait.edge.engine.zigbee.exception;\r\n\r\npublic class UnknownCoordinatorMacException extends Throwable {\r\n\r\n\t/**\r\n\t *",
+    "suffix": "2803057591L;\r\n}\r\n",
+    "target": " \r\n\t */\r\n\tprivate static final long serialVersionUID = 599537237"
+  },
+  {
+    "prefix": "import java.math.BigInteger;\n\n\npublic class Uler3 {\n\n\tpublic static void main(String[] args) {\n\t\t// TODO Auto-generated method stub\n\n\t\tBigInteger num = new BigInteger(\"600851475143\");\n\t\tBigInteger two = new BigInteger(\"2\");\n\t\tBigInteger zero = new BigInteger(\"0\");\n\t\tBigInteger half = (num.divide(two));\n\t\tBigInteger counter = new BigInteger(\"1\");\n\t\tBigInteger last = new BigInteger(\"1\");\n\t\thalf.doubleValue();//rounds it\n\t\tboolean checker;\n\t\tint compare = counter.compareTo(half);\n        while (compare == -1 )",
+    "suffix": "(\"Here: \" + last);\n        \n        \n        //the number 6857 is the answer\n        \n\t}\n}\n\n\n",
+    "target": "{ //compare less then \n        \tcompare = counter.compareTo(half);\n            checker = num.mod(counter).equals(zero);\n            if (checker == true){\n            \tlast = counter;\n            \tSystem.out.println(counter);\n            }\n            counter = counter.nextProbablePrime();\n\n        }\n        System.out.println"
+  },
+  {
+    "prefix": "package com.vmware.geode.twitter.streaming;\n\nimport com.vmware.geode.twitter.service.polarity.PolarityComputeService;\nimport nyla.solutions.core.net.http.Http;\n",
+    "suffix": "author Gregory Green\n */\n@Configuration\n@ComponentScan(basePackageClasses = {PolarityComputeService.class})\npublic class AppConfig\n{\n    @Bean\n    public Http http()\n    {\n        return new Http();\n    }\n}\n",
+    "target": "import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.ComponentScan;\nimport org.springframework.context.annotation.Configuration;\n\n/**\n * HttpConfig\n *\n * @"
+  },
+  {
+    "prefix": "package io.agora.rtc",
+    "suffix": "\n\npublic class LeaveRequest {\n    public String name;\n}\n",
+    "target": ".MiniClass.model.bean;"
+  },
+  {
+    "prefix": "package com.oca.chapter4.staticimports;\n\npublic class ClassB {\n\npublic static String NAME1 = \"JHON\";\n\t\n\tpublic static void printName(int a) {\n",
+    "suffix": " a) {\n\t\tSystem.out.println(\"Class A: name->\" + NAME1);\n\t}\n}\n",
+    "target": "\t\tSystem.out.println(\"Class A: name->\" + NAME1);\n\t}\n\t\n\tpublic static void printFoo(int"
+  },
+  {
+    "prefix": "#set($symbol_pound='#')",
+    "suffix": ".resources.client.ClientBundle;\n        import com.google.gwt.resources.client.ImageResource;\n\n/**\n * GWT managed images for Workbench\n */\npublic interface AppImages extends ClientBundle {\n\n    @Source(\"images/uf_user_logo.png\")\n    ImageResource ufUserLogo();\n\n    @Source(\"images/uf.png\")\n    ImageResource ufBrandLogo();\n}\n",
+    "target": "\n        #set($symbol_dollar='$')\n        #set($symbol_escape='\\' )\n        package ${package}.client.resources;\n\n        import com.google.gwt"
+  },
+  {
+    "prefix": "package com.dusan.rajkovic.pizzastore.exception;\n\npublic class SlugInUseException extends RuntimeException {\n\n\tprivate static final long serialVersionUID = 1L;",
+    "suffix": " already in use \" );\n    }\n}\n",
+    "target": "\n\n\tpublic SlugInUseException(String name) {\n        super(name + \" : Slug"
+  },
+  {
+    "prefix": "package medical;\n\npublic interface MedicInterface {\n\t\n\tpublic int insertMedic(Medic c);",
+    "suffix": ");\n\n}\n",
+    "target": "\n\tpublic Medic getMedic(String username,String password"
+  },
+  {
+    "prefix": "package ar.edu.unlam.recycloud.api.statistics.models;\n\nimport ar.edu.unlam.recycloud.app.utils.JsonTools;\nimport org",
+    "suffix": "\n\n    private final JsonTools jsonTools;\n\n    public DatasetFactory(JsonTools jsonTools) {\n        this.jsonTools = jsonTools;\n    }\n\n    public List<Dataset> fillDatasetWithColors(List<Dataset> dataList) throws IOException {\n        LineChartColor[] colors = jsonTools.loadFile(LINE_CHARTS_FILE, LineChartColor[].class);\n        for (int i = 0; i < dataList.size(); i++) {\n            dataList.get(i).fill(colors[i]);\n        }\n        return dataList;\n    }\n\n}\n",
+    "target": ".springframework.stereotype.Service;\n\nimport java.io.IOException;\nimport java.util.List;\n\n@Service\npublic class DatasetFactory {\n\n    private static final String CHART_PATH = \"/charts\";\n    private static final String LINE_CHARTS_FILE = CHART_PATH + \"/line_charts.json\";"
+  },
+  {
+    "prefix": "package BaseChess;\n\nimport java.awt.Color;",
+    "suffix": ": 棋子直径\n\tprivate int x;\n\tprivate int y;\n\tprivate Color color;\n\tpublic static final int DIAMETER = 30;\n\n\tpublic Point(int x, int y, Color color) {\n\t\tthis.x = x;\n\t\tthis.y = y;\n\t\tthis.color = color;\n\t}\n\n\tpublic int getX() {\n\t\treturn this.x;\n\t}\n\n\tpublic int getY() {\n\t\treturn this.y;\n\t}\n\n\tpublic Color getColor() {\n\t\treturn this.color;\n\t}\n}\n",
+    "target": "\n\n/**\n * \n * @author Hao\n * \n *         class for the chess point\n */\n\npublic class Point {\n\n\t// X: X坐标\n\t// Y: Y坐标\n\t// color: 棋子颜色\n\t// DIAMETER"
+  },
+  {
+    "prefix": "package sound.engine;\n\nimport sun.audio.AudioPlayer;\nimport sun.audio.AudioStream;\n\nimport java.io.IOException;\nimport java.io.InputStream;\n\npublic class Sound {\n\n    private String soundDirPath;\n    private AudioStream audioStream;\n    private boolean empty;",
+    "suffix": "soundDirPath);\n        if (!empty) {\n            try {\n                audioStream = new AudioStream(inputStream);\n            } catch (IOException e) {\n                e.printStackTrace();\n            }\n            AudioPlayer.player.start(audioStream);\n        }\n    }\n}\n",
+    "target": "\n    private boolean valid;\n\n\n    public Sound(String soundDirPath) {\n        this.soundDirPath = soundDirPath;\n    }\n\n    public void play() {\n        InputStream inputStream = getClass().getResourceAsStream(this."
+  },
+  {
+    "prefix": "package com.illusion.avrillavigne.fragment;\n\nimport com.illusion.avrillavigne.R;\nimport com.illusion.avrillavigne.adapter.ExpandableListAdapter;\n\nimport android.graphics.BitmapFactory;\nimport android.os.Bundle;\nimport android.support.v4.app.Fragment;\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.",
+    "suffix": "ativeLayout(getActivity());\n         inflater.inflate(R.layout.album_list, wrapper, true);\n         mListView = (ListView) wrapper.findViewById(R.id.activity_mylist_listview);\n         return wrapper;\n    }\n\n    public ListView getListView() {\n        return mListView;\n    }\n\n}\n",
+    "target": "ViewGroup;\nimport android.widget.ListView;\nimport android.widget.RelativeLayout;\n\npublic class Discography_list extends Fragment {\n\n    private ListView mListView;\n    \n    @Override\n    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {\n         RelativeLayout wrapper = new Rel"
+  },
+  {
+    "prefix": "package com.company;\n\npublic class Element {\n    private double kg;\n    private Material material;\n\n    public Element(double kg, Material material){\n        this.kg = kg;\n        this.material = material;\n   ",
+    "suffix": " toString() {\n        return \"Element{\" + \"kg=\" +\n                this.kg + \", Material {\" +\n                \"name=\" + this.material.getName() +\n                \", isFragile=\" + this.material.isFragile() +\n                '}' + '}';\n    }\n}\n",
+    "target": " }\n\n    public boolean isFragile(){\n        return this.material.isFragile();\n    }\n\n    public double getKg(){\n        return this.kg;\n    }\n\n    @Override\n    public String"
+  },
+  {
+    "prefix": "package com.wilshion.headlinenews.model.http.api;\n\nimport com.wilshion.headlinenews.model.http.response.TestResponse;\n\nimport io.reactivex.",
+    "suffix": " 1.0]\n */\npublic interface VideoApi {\n    public static final String BASE_SERVER_URL = \"http://jdcl-app-test.ztehealth.com/health/MyRegistion/\";\n\n    @GET(\"queryChatAccountBySupId\")\n    Observable<TestResponse> queryChatAccountBySupId(@Query(\"supId\") int supId);\n\n}\n",
+    "target": "Observable;\nimport retrofit2.http.GET;\nimport retrofit2.http.Query;\n\n/**\n * Created by Wilshion on 2017/8/7 11:40.\n * [description : ]\n * [version :"
+  },
+  {
+    "prefix": "package ru.job4j.pseudo;\n/**\n * Drawing square.\n */\n\npublic class Square implements Shape {\n    @Override\n    public String draw() {\n        StringBuilder pic = new StringBuilder();\n        String lineSeparator = System.lineSeparator();\n        pic.append(\"oooooooo\");",
+    "suffix": "append(lineSeparator);\n        pic.append(\"oooooooo\");\n        return pic.toString();\n    }\n}\n",
+    "target": "\n        pic.append(lineSeparator);\n        pic.append(\"0      0\");\n        pic.append(lineSeparator);\n        pic.append(\"0      0\");\n        pic."
+  },
+  {
+    "prefix": "package com.lambdaschool.ordersapp.repositories;\n\nimport com.lambdaschool.ordersapp.models.Agent;\nimport org.springframework.data.repository",
+    "suffix": ">\n{\n}\n",
+    "target": ".CrudRepository;\n\npublic interface AgentsRepository extends CrudRepository<Agent, Long"
+  },
+  {
+    "prefix": "package org.sistcoop.socio.services.managers;\n\nimport javax.ejb.Stateless;\nimport javax.ejb",
+    "suffix": "Representation;\n\n@Stateless\n@TransactionAttribute(TransactionAttributeType.REQUIRED)\npublic class AutorizadoManager {\n\n    public void update(AutorizadoModel model, AutorizadoRepresentation rep) {\n        //\n    }\n\n    public void disable(AutorizadoModel autorizadoModel) {\n        autorizadoModel.desactivar();\n        autorizadoModel.commit();        \n    }\n\n}",
+    "target": ".TransactionAttribute;\nimport javax.ejb.TransactionAttributeType;\n\nimport org.sistcoop.socio.models.AutorizadoModel;\nimport org.sistcoop.socio.representations.idm.Autorizado"
+  },
+  {
+    "prefix": "package com.github.gfx.helium;\n\nimport com.google.common.io.ByteStreams;\n\nimport android.support.test.InstrumentationRegistry;\n\nimport java.io.IOException;\nimport java.io.InputStream;\n\npublic class TestUtils {\n\n    public static InputStream openAsset(String name) throws IOException",
+    "suffix": "        return ByteStreams.toByteArray(openAsset(name));\n    }\n}\n",
+    "target": " {\n        return InstrumentationRegistry.getContext().getAssets().open(name);\n    }\n\n    public static byte[] getAssetFileInBytes(String name) throws IOException {\n"
+  },
+  {
+    "prefix": "package egg;\npublic interface IBlocMessages {\n\n  public static final int id_Bloc_unexpected_token = 3080192;\n  public static final int id_Bloc_expected_token = 30",
+    "suffix": " int id_Bloc_expected_eof = 3080195;\n  }\n",
+    "target": "80193;\n  public static final int id_P_01 = 3080194;\n  public static final"
+  },
+  {
+    "prefix": "package _My_device;\r\n\r\npublic class My_device_main extends javafx.application.Application {\r\n\r\n    @Override\r\n    public void start(javafx.stage.Stage stage) throws Exception {\r\n        stage.setScene(new javafx.scene.Scene(javafx.fxml.FXMLLoader.load(getClass().getResource(\"My_device_GUI.fxml\"))));\r\n        // stage.setScene(new javafx.scene.Scene(javafx.fxml.FXMLLoader.load(getClass().getClassLoader().getResource(\"_My_device/My_device_GUI.fxml\"))));\r\n        stage.setTitle(\"PauWare engine software (www.PauWare.com)",
+    "suffix": " }\r\n\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}\r\n",
+    "target": " - \\\"My device\\\" case study (simulator) - Click on \\\"START\\\" to start...\");\r\n        stage.getIcons().add(new javafx.scene.image.Image(new java.io.File(\"_My_device/_My_device/Images/favicon.ico\").toURI().toString()));\r\n        stage.setResizable(false);\r\n        stage.show();\r\n   "
+  },
+  {
+    "prefix": "package org.example.service;\n\nimport org.example.model.CommonResult;\nimport org.springframework.cloud.openfeign.FeignClient;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.PostMapping;\nimport org.springframework.web.bind.",
+    "suffix": " id);\n\n    @PostMapping(value = \"/seata/storage/decrease\")\n    CommonResult decrease(@RequestParam(\"productId\") Long productId, @RequestParam(\"count\") Integer count);\n}\n",
+    "target": "annotation.RequestParam;\n\n@FeignClient(value = \"${service.storage}\")\npublic interface StorageService {\n\n    @GetMapping(value = \"/seata/storage/{id}\")\n    CommonResult getById(@PathVariable(\"id\") Long"
+  },
+  {
+    "prefix": "package com.daimabaike.biz.foo.",
+    "suffix": "\n\t * \r\n\t */\r\n\tprivate static final long serialVersionUID = 203761816775889922L;\r\n\r\n\tpublic OrderSuccEvent(String orderId) {\r\n\t\tsuper(orderId);\r\n\t}\r\n\t\r\n}\r\n",
+    "target": "event;\r\n\r\nimport org.springframework.context.ApplicationEvent;\r\n\r\npublic class OrderSuccEvent extends ApplicationEvent {\r\n\r\n\t/**\r"
+  },
+  {
+    "prefix": "// PARSER_WEEDER\n// JOOS1: PARSER_EXCEPTION,SYNTAX_ERROR\n// JOOS2: PARSER_EXCEPTION,SYNTAX_ERROR\n// JAVAC: \n/**\n * Parser/weeder:\n * - Multiple declarations not allowed in for initializer.\n */\npublic class Je_1_For_MultipleDeclarationsInInit{\n\n    public Je_1_For_MultipleDeclarationsIn",
+    "suffix": "\n",
+    "target": "Init(){}\n\n    public static int test(){\n\tfor (int i = 0, j = 10; i < j; i = i + 1){}\n\treturn 123;\n    }\n}"
+  },
+  {
+    "prefix": "package slogo.exceptions;\n\n/**\n * This exception is thrown when a token is not recognized.\n */\npublic class UnknownCommandException extends ModelException {\n  private String command;\n  private static final String name = \"UnknownIdentifierException\";\n\n  /**\n   * Create a new instance of this exception\n   * @param command that caused the error\n   */\n  public UnknownCommandException(String command) {\n    super(name);\n    this.command =",
+    "suffix": " the command\n   */\n  public String getCommand() {\n    return command;\n  }\n}\n",
+    "target": " command;\n  }\n\n  @Override\n  public String buildException(String format) {\n    return String.format(format, command);\n  }\n\n  /**\n   * Get the command that caused the error\n   * @return"
+  },
+  {
+    "prefix": "package dao;\n\nimport javax.annotation.Resource;\n\nimport org.springframework.stereotype.Service;\n\nimport util.HibernateUtil;\nimport entity.Admin;\nimport entity.Department;\n\n@Service\npublic class PersonDao {\n\t@Resource\n\tprivate H",
+    "suffix": "email);\n\t\tadmin.setWorkphone(wp);\n\t\tadmin.setMobilephone(mp);\n\t\tDepartment depart = (Department) util.get(Department.class, dp);\n\t\tadmin.setDepartment(depart);\n\t\tutil.update(admin);\n\t\treturn admin;\n\t}\n}\n",
+    "target": "ibernateUtil util;\n\n\tpublic void update(Admin admin) {\n\t\tutil.update(admin);\n\t}\n\n\tpublic Admin update(Integer dp, String email, String wp, String mp,\n\t\t\tAdmin admin) {\n\t\tadmin.setEmail("
+  },
+  {
+    "prefix": "package playwell.launcher;\n\nimport playwell.clock.ClockRunner;\nimport playwell.integration.ClockRunnerIntegrationPlan;\nimport playwell.integration.IntegrationPlan;\n\n/**\n * ClockRunnerLauncher\n */\npublic class ClockRunnerLauncher extends BaseLauncher {\n\n  private static final String NAME = \"clock\";\n\n  public ClockRunnerLauncher() {\n    super(\"playwell.integration.StandardClockRunnerIntegrationPlan\");\n  }\n\n  @Override",
+    "suffix": ".dispatch();\n  }\n\n  @Override\n  public String moduleName() {\n    return NAME;\n  }\n}\n",
+    "target": "\n  protected void startRunner(IntegrationPlan integrationPlan) {\n    final ClockRunnerIntegrationPlan clockRunnerIntegrationPlan = (ClockRunnerIntegrationPlan) integrationPlan;\n    final ClockRunner clockRunner = clockRunnerIntegrationPlan.getClockRunner();\n    clockRunner"
+  },
+  {
+    "prefix": "package yui.hesstina.mistakes.concurrenttool.copyonwritelistmisuse;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n/**\n * CopyOnWriteListMisuse 滥用 <br/>\n * 启动类\n *\n *",
+    "suffix": "Application {\n\n    public static void main(String[] args) {\n        SpringApplication.run(CopyOnWriteListMisuseApplication.class, args);\n    }\n\n}\n",
+    "target": " @author YuI\n * @date 2021/1/26 20:56 \n * @since 1.0\n **/\n@SpringBootApplication\npublic class CopyOnWriteListMisuse"
+  },
+  {
+    "prefix": "package ch.jalu.configme.samples;\n\nimport ch.jalu.configme.SettingsHolder;\nimport ch.jalu.configme.properties.Property;\n\nimport static ch.jalu.configme.properties",
+    "suffix": " PRIVATE_INT_PROPERTY = newProperty(\"int\", 4);\n}\n",
+    "target": ".PropertyInitializer.newProperty;\n\npublic class ClassWithPrivatePropertyField implements SettingsHolder {\n\n    private static final Property<Integer>"
+  },
+  {
+    "prefix": "package com.google.android.gms.internal.ads;\n\nimport android.content.BroadcastReceiver;\nimport android.content.Context;\nimport android.content.Intent;\n\n/* access modifiers changed from: package-private */\npublic final class f",
+    "suffix": " }\n\n    public final void onReceive(Context context, Intent intent) {\n        this.a.c();\n    }\n}\n",
+    "target": "y extends BroadcastReceiver {\n    private final /* synthetic */ dy a;\n\n    fy(dy dyVar) {\n        this.a = dyVar;\n   "
+  },
+  {
+    "prefix": "package org.acelera.saopa",
+    "suffix": "edy {\n\n    String darRisada();\n}\n",
+    "target": "ulo;\n\npublic interface StandUpCom"
+  },
+  {
+    "prefix": "public class java_Arithmatic_Operator_",
+    "suffix": "        System.out.println(a+b);  \r\n        System.out.println(a-b);  \r\n        System.out.println(a*b);  \r\n        System.out.println(a/b);  \r\n        System.out.println(a%b); \r\n    }\r\n}\r\n",
+    "target": "example {\r\n    public static void main(String[] args) {\r\n        int a = 10;\r\n        int b = 5;\r\n        \r\n"
+  },
+  {
+    "prefix": "\npackage gov.cms.mat.fhir.services.components.reporting;\n\nimport gov.cms",
+    "suffix": " org.junit.jupiter.api.Assertions.assertNotEquals;\n\nclass MeasureResultMappingDtoTest {\n    @Test\n    void testEquals() {\n        FieldConversionResult result = FieldConversionResult.builder().build();\n        MatAttribute matAttr = new MatAttribute();\n\n        MeasureResultMappingDto lhs = new MeasureResultMappingDto(result, matAttr);\n        MeasureResultMappingDto rhs = new MeasureResultMappingDto(result, matAttr);\n\n        assertEquals(lhs, rhs);\n        assertNotEquals(lhs, new MeasureResultMappingDto(result, \"ERROR\"));\n    }\n}",
+    "target": ".mat.fhir.rest.dto.FieldConversionResult;\nimport gov.cms.mat.fhir.rest.dto.spreadsheet.MatAttribute;\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static"
+  },
+  {
+    "prefix": "package com.agile.spirit.componentsinfo;\n\nimport org.hippoecm.hst.core.parameters.FieldGroup;\nimport org.hippoecm.hst.core.parameters",
+    "suffix": " )\n})\npublic interface GeneralListInfo {\n\n  @Parameter(name = \"title\", displayName = \"The title of the page\", defaultValue = \"Overview\")\n  String getTitle();\n\n  @Parameter(name = \"pageSize\", displayName = \"Page Size\", defaultValue = \"10\")\n  int getPageSize();\n\n  @Parameter(name = \"docType\", displayName = \"Document Type\", defaultValue = \"happyhippos:basedocument\")\n  String getDocType();\n\n  @Parameter(name = \"sortBy\", displayName = \"Sort By Property\")\n  String getSortBy();\n\n  @Parameter(name = \"sortOrder\", displayName = \"Sort Order\", defaultValue = \"descending\")\n  String getSortOrder();\n\n}\n",
+    "target": ".FieldGroupList;\nimport org.hippoecm.hst.core.parameters.Parameter;\n\n@FieldGroupList({\n    @FieldGroup(\n        titleKey = \"group.content\",\n        value = {\"title\", \"pageSize\", \"docType\"}\n    ),\n    @FieldGroup(\n        titleKey = \"group.sorting\",\n        value = {\"sortBy\", \"sortOrder\"}\n   "
+  },
+  {
+    "prefix": "package com.hubspot.singularity.data.zkmigrations;\n\nimport com.google.inject.Inject;\nimport com.google.inject.Singleton;\nimport org.apache.curator.framework.CuratorFramework;\nimport org.apache.zookeeper.KeeperException.NoNodeException;\n\n@Singleton\npublic class ClearUsagesMigration extends ZkDataMigration {\n  private final CuratorFramework curator;\n\n  @Inject\n  public ClearUsagesMigration(CuratorFramework curator) {\n",
+    "suffix": "\n        curator.delete().deletingChildrenIfNeeded().forPath(\"/usage/tasks\");\n      } catch (NoNodeException nee) {}\n    } catch (Exception e) {\n      throw new RuntimeException(e);\n    }\n  }\n}\n",
+    "target": "    super(15);\n    this.curator = curator;\n  }\n\n  @Override\n  public void applyMigration() {\n    try {\n      try {\n        // Data format has changed and usage will repopulate when the poller runs\n        curator.delete().deletingChildrenIfNeeded().forPath(\"/usage/slaves\");"
+  },
+  {
+    "prefix": "package org.jeecg.modules.test.service.impl;\n\nimport org.jeecg.modules.test.entity.",
+    "suffix": "import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;\n\n/**\n * @Description: 测试分类\n * @Author: jeecg-boot\n * @Date:   2020-03-15\n * @Version: V1.0\n */\n@Service\npublic class TestTypeServiceImpl extends ServiceImpl<TestTypeMapper, TestType> implements ITestTypeService {\n\n}\n",
+    "target": "TestType;\nimport org.jeecg.modules.test.mapper.TestTypeMapper;\nimport org.jeecg.modules.test.service.ITestTypeService;\nimport org.springframework.stereotype.Service;\n\n"
+  },
+  {
+    "prefix": "package com.fly.news;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.cloud.netflix.eureka.EnableEurekaClient;\nimport org.springframework.cloud.netflix.hystrix.EnableHystrix;\nimport org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;\nimport org.springframework.cloud.openfeign.EnableFeignClients;\n\n/**\n * Description: <><br>\n * Author:    mxdl<br>\n * Date",
+    "suffix": "rix\npublic class NewsServiceApplication {\n\tpublic static void main(String[] args) {\n\t\tSpringApplication.run(NewsServiceApplication.class, args);\n\t}\n}\n",
+    "target": ":      2019/2/19<br>\n * Version:    V1.0.0<br>\n * Update:     <br>\n */\n@SpringBootApplication\n@EnableEurekaClient\n@EnableFeignClients\n@EnableHystrixDashboard\n@EnableHyst"
+  },
+  {
+    "prefix": "package com.blackirwin.annotations;\n\nimport java.lang.annotation.ElementType;\nimport java.lang.annotation.Retention;\nimport java.lang.annotation.RetentionPolicy;\nimport java.lang.annotation.Target;\n\nimport static com.blackirwin.RelativeConst.PARSE_TEST_STRING_MAX_LENGTH;\n\n/**\n * Created by blackirwin on 2",
+    "suffix": " default PARSE_TEST_STRING_MAX_LENGTH;\n}\n",
+    "target": "017/7/7.\n */\n@Retention(RetentionPolicy.SOURCE)\n@Target(ElementType.FIELD)\npublic @interface ParseByTestString {\n    int maxLength()"
+  },
+  {
+    "prefix": "package com.example.web.stuff;\n\nimport org.springframework.beans.factory.annotation.Autowired",
+    "suffix": "import com.example.domain.stuff.MyEntity;\nimport com.example.domain.stuff.MyEntityRepository;\n\n@Controller\n@Transactional(readOnly = true)\npublic class MyEntityController {\n\n    private final MyEntityRepository myEntityRepository;\n\n    @Autowired\n    public MyEntityController(MyEntityRepository myEntityRepository) {\n        this.myEntityRepository = myEntityRepository;\n    }\n\n    @GetMapping(\"/entities/{id}\")\n    @ResponseBody\n    public MyEntity id(@PathVariable long id) {\n        return myEntityRepository.findById(id);\n    }\n\n}\n",
+    "target": ";\nimport org.springframework.stereotype.Controller;\nimport org.springframework.transaction.annotation.Transactional;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.ResponseBody;\n\n"
+  },
+  {
+    "prefix": "package tk.zielony.randomdata",
+    "suffix": "Type> {\n    Type next();\n}\n",
+    "target": ";\n\npublic interface SimpleGenerator<"
+  },
+  {
+    "prefix": "package org.notima.generic.ifacebusinessobjects;\n\nimport java.util.List;\n\nimport org.notima.generic.businessobjects.PublicKey;\n\n/**\n * A service template that manages pgp keys and allows key look up by email address.\n * \n * @author Oliver Norin\n *\n */\npublic interface KeyManager {\n\n    public PublicKey add(PublicKey key);\n    public",
+    "suffix": "     */\n    public List<PublicKey> list();\n}\n",
+    "target": " PublicKey update(PublicKey key);\n    public PublicKey remove(PublicKey key);\n    public PublicKey get(String userId);\n\n    /**\n     * List all stored keys\n     * @return\n"
+  },
+  {
+    "prefix": "package prot3ct.workit.views.list_dialogs.base;\n\nimport java.util.List;\n\nimport prot3ct.workit.base.BaseView;\nimport prot3ct.workit.view_models.DialogsListViewModel;\nimport prot3ct.workit.view_models.TaskDetailViewModel;\n\npublic interface ListDialogsContract {",
+    "suffix": "Dialog();\n\n        void notifyError(String errorMessage);\n    }\n\n    interface Presenter {\n        void getDialogs();\n\n        int getLoggedInUserId();\n    }\n}\n",
+    "target": "\n    interface View extends BaseView<ListDialogsContract.Presenter> {\n        void notifySuccessful();\n\n        void showDialogforLoading();\n\n        void updateDialogs(List<DialogsListViewModel> dialogs);\n\n        void dismiss"
+  },
+  {
+    "prefix": "package com.neeyoo;\n\n/**\n * Created by Tianxb.\n * Created on 2019/9/27.\n * Description:\n * 解析:\n *  1.父类静态代码块(java虚拟机加载类时, 就会执行该块代码，故只执行- -次)\n *  2.子类静态代码块(java虚拟机加载类时， 就会执行该块代码，故只执行- -次)\n *  3.父类属性对象初始化",
+    "suffix": "\n\n    X() {\n        System.out.println(\"X\");\n    }\n}\n\nclass Y {\n    Y() {\n        System.out.println(\"Y\");\n    }\n}\n\npublic class Z extends X {\n    Y y = new Y();\n\n    private Z() {\n        System.out.println(\"Z\");\n    }\n\n    public static void main(String[] args) {\n        new Z();\n    }\n}",
+    "target": "\n *  4.父类普通代码块(每次new，每次执行)\n *  4.父类构造函数(每次new,每次执行)\n *  6.子类属性对象初始化\n *  7.子类普通代码块(每次new,每次执行)\n *  8.子类构造函数(每次new,每次执行)\n */\nclass X {\n    Y y = new Y();"
+  },
+  {
+    "prefix": "// SPDX-FileCopyrightText: 2",
+    "suffix": "DX-License-Identifier: Apache-2.0\n\n/**\n * Implementation of the Stateless OpenPGP Command Line Interface using Picocli.\n */\npackage sop.cli.picocli;\n",
+    "target": "021 Paul Schaub <vanitasvitae@fsfe.org>\n//\n// SP"
+  },
+  {
+    "prefix": "\t//Clasa dedicata citirii si scrierii imaginii in fisier\n\npackage ImageInOut;\n\nimport java.awt.image.BufferedImage;\nimport javax.imageio.ImageIO;\nimport java.io.IOException;\nimport java.io.File;\nimport Timing.Time;\n\npublic class ImageInOut extends Time{\n\t\n\tpublic BufferedImage read(File fin) throws IOException{\n\t\t\n\t\tstart();",
+    "suffix": "\n\t}\n\t\n\tpublic void write(File fout,BufferedImage image) throws IOException{\n\t\t\n\t\tstart();\n\t\ttry{\n\t\t\t\n\t\t\tImageIO.write(image, \"bmp\", fout);\n\t\t\tSystem.out.println(\"Writing complete.\");\n\t\t\t}\n\t\t\n\t\tcatch(IOException e){\n\t\t\t\n\t\t\tSystem.out.println(\"Error: \"+e);\n\t\t\t}\n\t\t\n\t\tstop();\n\t}\n}",
+    "target": "\n\t\tBufferedImage image = null;\n\t\t\n\t\ttry{\n\t\t\t\n\t\t\timage = ImageIO.read(fin);\n\t\t\tSystem.out.println(\"Reading complete.\");\n\t\t\t}\n\t\t\n\t\tcatch(IOException e){\n\t\t\t\n\t\t\tSystem.out.println(\"Error: \"+e);\n\t\t\t}\n\t\t\n\t\tstop();\n\t\t\n\t\treturn image;"
+  },
+  {
+    "prefix": "package org.iton.messenger.api;\n\nimport io.netty.buffer.ByteBuf;\nimport org.iton.messenger.core.TLContext;\n\nimport java.io.IOException;\n\nimport static org.iton.messenger.core.utils.Stream",
+    "suffix": "\n\n    @Override\n    public int getClassId() {\n        return CLASS_ID;\n    }\n\n     public void serializeBody(ByteBuf stream) throws IOException {\n        writeInt(this.id, stream);\n        writeLong(this.random_id, stream);\n    }\n\n    public void deserializeBody(ByteBuf stream, TLContext context) throws IOException {\n        this.id        = readInt(stream);\n        this.random_id = readLong(stream);\n    }\n\n    public String toString() {\n        return \"update.MessageID#4e90bfd6\";\n    }\n}\n",
+    "target": "ingUtils.*;\n\npublic class TLUpdateMessageID extends Update {\n    public static final int CLASS_ID = 0x4e90bfd6;\n\n    public TLUpdateMessageID() {\n    }\n\n    public TLUpdateMessageID(int id, long random_id) {\n        this.id        = id;\n        this.random_id = random_id;\n    }"
+  },
+  {
+    "prefix": "package com.",
+    "suffix": "\n * @version V1.0\r\n * @Title: TransactionListener\r\n * @Package com.hucheng.api.eth.service\r\n * @Description: TODO\r\n * @date 2017/12/19 16:43\r\n */\r\npublic class TransactionListener extends  EthContractListener{\r\n\r\n    @Override\r\n    public void transaction(Transaction tx) {\r\n\r\n    }\r\n}\r\n",
+    "target": "morningtech.eth.server.eth.service;\r\n\r\nimport org.web3j.protocol.core.methods.response.Transaction;\r\n\r\n/**\r\n * @author xuchunlin\r"
+  },
+  {
+    "prefix": "package com.twu.biblioteca;\n\nimport com.twu.biblioteca.model.Book;\nimport org.junit.Test;\n\nimport static org.junit.Assert.assertEquals;\nimport static org",
+    "suffix": "5\");\n\n    @Test\n    public void getTitle() {\n        assertEquals(\"Alice in Wonderland\", testBook.getTitle());\n    }\n\n    @Test\n    public void testToString() {\n        String bookString = testBook.toString();\n        assertTrue(bookString.contains(testBook.getTitle()));\n    }\n}\n",
+    "target": ".junit.Assert.assertTrue;\n\npublic class BookTest {\n\n    private Book testBook\n            = new Book(\"Alice in Wonderland\",\n            \"Lewis Carroll\",\n            \"1/26/189"
+  },
+  {
+    "prefix": "package com.yammer.breakerbox.turbine.managed;\n\nimport com.netflix.turbine.init.TurbineInit;\nimport io.dropwizard.lifecycle.Managed;\n\npublic class ManagedTurbine implements Managed {\n    @Override\n   ",
+    "suffix": " stop() throws Exception {\n        TurbineInit.stop();\n    }\n}",
+    "target": " public void start() throws Exception {\n        //Start happens in an scheduled thread since it needs to have the connector live to work.\n    }\n\n    @Override\n    public void"
+  },
+  {
+    "prefix": "package org.csu.pubg.persistence;\n\nimport org.csu.pubg.domain.Cart;\nimport org.csu.pubg.domain.Wish;\n\nimport java.util.List;\n\n/**\n * Created by Tovi",
+    "suffix": "ish> getWishListByNickName(String nickName);\n    //获取数量输入框中的值，修改购物车相关信息\n    boolean modifyWishByNumber(int number, int wishId);\n    //通过wishId删除购物车里面的信息\n    boolean deleteWishByWishId(int wishId);\n    public boolean deleteWishByNameAndItemId(String name,int itemid);\n}\n",
+    "target": " on 2017/9/20.\n */\npublic interface WishDao {\n    //通过三个参数，添加到数据库\n    boolean addWish(String nickName, int itemId, int itemNumber);\n    //通过用户昵称获取购物车信息\n    List<W"
+  },
+  {
+    "prefix": "package com.spring.microservice.Controllers;\n\nimport org.springframework.beans.factory.annotation.Value;\nimport org.springframework",
+    "suffix": ".util.HashMap;\nimport java.util.Map;\n\n@RestController\npublic class HomeController {\n    @Value(\"${app.version}\")\n    private String appVersion;\n\n    @GetMapping\n    @RequestMapping(\"/\")\n    public Map getStatus() {\n        Map map = new HashMap<String, String>();\n        map.put(\"app-version\", appVersion);\n        return map;\n    }\n}\n",
+    "target": ".validation.annotation.Validated;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport java"
+  },
+  {
+    "prefix": "/**\n *\n",
+    "suffix": " */\npublic class Activator implements BundleActivator{\n\tprivate MyBundleTracker bundleTracker;\n\n\t@Override\n\tpublic void start(BundleContext context) throws Exception {\n\t\tSystem.out.println(\"Starting Bundle Tracker\");\n\t\tint trackStates = Bundle.STARTING | Bundle.STOPPING | Bundle.RESOLVED | Bundle.INSTALLED | Bundle.UNINSTALLED;\n\t\tbundleTracker = new MyBundleTracker(context, trackStates, null);\n\t\tbundleTracker.open();\n\t}\n\n\t@Override\n\tpublic void stop(BundleContext context) throws Exception {\n\t\tSystem.out.println(\"Stopping Bundle Tracker\");\n\t\tbundleTracker.close();\n\t\tbundleTracker = null;\n\t}\n\n}\n",
+    "target": " */\npackage org.apache.uima.fit.osgi.impl;\n\nimport org.apache.uima.fit.osgi.utils.MyBundleTracker;\nimport org.osgi.framework.Bundle;\nimport org.osgi.framework.BundleActivator;\nimport org.osgi.framework.BundleContext;\n\n/**\n *\n"
+  },
+  {
+    "prefix": "\npackage org.openhab.binding.draytonwiser.internal.config;\n\nimport com.google.gson.annotations.Expose;\nimport com.google.gson.annotations.SerializedName;\n\npublic class BoilerSettings {\n\n    @SerializedName(\"ControlType\")\n    @Expose",
+    "suffix": "Rate\")\n    @Expose\n    public String cycleRate;\n\n}\n",
+    "target": "\n    public String controlType;\n    @SerializedName(\"FuelType\")\n    @Expose\n    public String fuelType;\n    @SerializedName(\"Cycle"
+  },
+  {
+    "prefix": "package org.jamplate.glucose.instruction.operator.struct;\n\nimport org.jamplate.glucose.instruction.memory.resource.IPushConst;\nimport org.jamplate.impl.instruction.Block;\nimport org.jamplate.impl.environment.EnvironmentImpl;\nimport org.jamplate.memory.Memory;\nimport org.junit.jupiter.api.Test;\n\nimport static",
+    "suffix": "(\n\t\t\t\t\t\tpair(\"Oniichan\", \"Bro\"),\n\t\t\t\t\t\tpair(\"Oneechan\", \"Sister\")\n\t\t\t\t)),\n\t\t\t\tISpread.INSTANCE\n\t\t).exec(new EnvironmentImpl(), memory);\n\n\t\tassertEquals(\n\t\t\t\t\"Bro\",\n\t\t\t\tmemory.get(\"Oniichan\").eval(memory),\n\t\t\t\t\"Not spread properly\"\n\t\t);\n\t\tassertEquals(\n\t\t\t\t\"Sister\",\n\t\t\t\tmemory.get(\"Oneechan\").eval(memory),\n\t\t\t\t\"Not spread properly\"\n\t\t);\n\t}\n}\n",
+    "target": " org.jamplate.glucose.internal.util.Values.obj;\nimport static org.jamplate.glucose.internal.util.Values.pair;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class ISpreadTest {\n\t@Test\n\tpublic void test0() {\n\t\tMemory memory = new Memory();\n\n\t\tnew Block(\n\t\t\t\tnew IPushConst(obj"
+  },
+  {
+    "prefix": "package com.frankmoley.lil.sbet.landon.roomwebapp.data;\n\nimport com.frankmoley.lil.sbet.landon.roomwebapp.models.StaffMember;\n",
+    "suffix": "taffMember, String> {\n}\n",
+    "target": "import org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface StaffRepository extends JpaRepository<S"
+  },
+  {
+    "prefix": "package es.amplia.oda.core.commons.interfaces;\n\nimport es.amplia.oda.core.commons.exceptions.DataNotFoundException;\n\nimport lombok.Value;\n\n/**\n * SCADA translator to translate from Datastream info {device id, datastream id} to SCADA info {index, SCADA type).\n",
+    "suffix": " info Datastream info to translate.\n     * @return Correspondent SCADA info.\n     * @throws DataNotFoundException Data with the given parameters was not found.\n     */\n    ScadaInfo translate(DatastreamInfo info);\n\n    @Value\n    class DatastreamInfo {\n        private String deviceId;\n        private String datastreamId;\n        private Object value;\n    }\n\n    DatastreamInfo getDatastreamInfo(ScadaInfo info);\n}\n",
+    "target": " */\npublic interface ScadaTableTranslator {\n\n    @Value\n    class ScadaInfo {\n        private int index;\n        private Object type;\n        private Object value;\n    }\n    \n    /**\n     * translate from the given Datastream info (device id and datastream id) to SCADA info (index and type).\n     * @param"
+  },
+  {
+    "prefix": "package br.com.dio.exercicios.arrays;\n\nimport java.util.Random;\n\n/*\nGere e imprima uma matriz M 4",
+    "suffix": "imensional {\n    public static void main(String[] args) {\n\n    }\n}\n",
+    "target": "x4 com valores aleatórios entre 0-9.\n*/\npublic class Ex4_ArrayMultid"
+  },
+  {
+    "prefix": "package carpetfixes.mixins.blockUpdates;\n\nimport carpetfixes.CarpetFixesSettings;\nimport net.minecraft.block.ObserverBlock;\nimport org.spongepowered.asm.mixin.Mixin;\nimport org.spongepowered.asm.mixin.injection.At;\nimport org.spongepowered.asm.mixin.in",
+    "suffix": "State;Z)V\",\n            at = @At(\n                    value = \"INVOKE\",\n                    target = \"Lnet/minecraft/world/World;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z\"\n            ),\n            index = 2\n    )\n    public int observerUpdate(int value) {\n        return CarpetFixesSettings.observerUpdateFix && value%2 == 0 ? ++value : value;\n    }\n}\n",
+    "target": "jection.ModifyArg;\n\n@Mixin(ObserverBlock.class)\npublic class ObserverBlock_missingUpdateMixin {\n\n    @ModifyArg(\n            method = \"onBlockAdded(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block"
+  },
+  {
+    "prefix": "//This file is automatically generated. DO NOT EDIT!\npackage",
+    "suffix": "\nimport com.robotraconteur.*;\npublic class ostruct2 implements RRStructure\n{\n    public double[] a1;\n}\n\n",
+    "target": " com.robotraconteur.testing.TestService2;\nimport java.util.*;"
+  },
+  {
+    "prefix": "package com.example.finproject.viewmodels;\n\nimport android.app.Application;\n\nimport androidx.annotation.NonNull;\nimport androidx.lifecycle.AndroidViewModel;\nimport androidx.lifecycle.MutableLiveData;\n\nimport com.example.finproject.models.StockListElement;\nimport com.example.finproject.repo.Repository;\n\nimport java.io.IOException;\nimport java.util",
+    "suffix": "Model(@NonNull Application application) {\n        super(application);\n        this.stocks = repo.getStocks();\n    }\n\n    @NonNull\n    public MutableLiveData<ArrayList<StockListElement>> getStocks() {\n        return stocks;\n    }\n}\n",
+    "target": ".ArrayList;\n\nimport yahoofinance.YahooFinance;\n\npublic class StockViewModel extends AndroidViewModel {\n\n    private MutableLiveData<ArrayList<StockListElement>> stocks;\n\n    @NonNull\n    private final Repository repo = Repository.getInstance();\n\n    public StockView"
+  },
+  {
+    "prefix": "package com.z1.timer;\n\nimport org.springframework",
+    "suffix": " {\n\n    @Scheduled(cron = \"*/3,6,8 * * * * ?\")\n    public void test(){\n\n        System.out.println(1);\n\n//        throw new RuntimeException();\n    }\n}\n",
+    "target": ".scheduling.annotation.Scheduled;\nimport org.springframework.stereotype.Component;\n\n@Component\npublic class Test"
+  },
+  {
+    "prefix": "package com.akexorcist.androidstudio.plugin.nextdroidtemplate.constant;\n\npublic class TemplateProperties {\n    public static final String LAYOUT_NAME = \"LAYOUT_NAME\";\n    public static final String CLASS_NAME",
+    "suffix": "AGE_NAME\";\n}\n",
+    "target": " = \"CLASS_NAME\";\n    public static final String APP_PACKAGE_NAME = \"APP_PACK"
+  },
+  {
+    "prefix": "public class BitSet\n{\n    int maxvalue;\n    long A[];\n\n    BitSet(int maxv) {\n\tmaxvalue = maxv;\n\tint size = 1+maxv/64;\n\tA = new long[size];\n    }\n\n    public boolean contains(int i) {\n\tif ((i>maxvalue)||(i<0)) return false;\n\tint k =",
+    "suffix": "    }\n\n\n    public void remove(int i)\n    {\n    }\n\n\n\n\n}\n",
+    "target": " i/64;\n\tint shift = i-k*64;\n\treturn ((A[k]>>shift) & 1)==1;\n    }\n    \n    public void add(int i)\n    {\n"
+  },
+  {
+    "prefix": "package com.newMedia.dto;\n\nimport com.newMedia.entity.Product;\n\npublic class ProductAbs {\n    private int id;\n    private String productTittle;\n\n    public ProductAbs(Product product)",
+    "suffix": "Id(int id) {\n        this.id = id;\n    }\n\n    public String getProductTittle() {\n        return productTittle;\n    }\n\n    public void setProductTittle(String productTittle) {\n        this.productTittle = productTittle;\n    }\n}\n",
+    "target": " {\n        this.id = product.getId();\n        this.productTittle = product.getProductTittle();\n    }\n\n    public int getId() {\n        return id;\n    }\n\n    public void set"
+  },
+  {
+    "prefix": "package lk.sliit.employeeManagement.service.custom.impl",
+    "suffix": "springframework.stereotype.Service;\nimport org.springframework.transaction.annotation.Transactional;\n\n@Service\n@Transactional\npublic class ReservationBOImpl  implements ReservationBO {\n}\n",
+    "target": ";\n\nimport lk.sliit.employeeManagement.service.custom.ReservationBO;\nimport org."
+  },
+  {
+    "prefix": "package",
+    "suffix": "\n    public ParsingException(int pos) {\n        super(\"Input string doesn't match grammar at pos: \" + pos);\n    }\n}\n",
+    "target": " parser;\n\npublic class ParsingException extends RuntimeException {\n"
+  },
+  {
+    "prefix": "package com.qiqiao.service;\n\nimport com.qiqiao.model.project;\nimport com.qiqiao.model.students;\n\nimport java.util.List;\n\n/**\n * @author Wcy\n * @Date 20",
+    "suffix": "\n\n    int updateByPrimaryKeySelective(project record);\n\n    int updateByPrimaryKey(project record);\n\n    List<project> findAllProjects();\n\n    List<project> selectByUsername(String username );\n\n    List<project> selectByFangxiang(String fangxiang );\n\n    List<project> selectByName(String name );\n}\n",
+    "target": "21/4/19 17:00\n */\npublic interface projectService {\n\n    int deleteByPrimaryKey(Integer id);\n\n    int insert(project record);\n\n    int insertSelective(project record);\n\n    project selectByPrimaryKey(Integer id);"
+  },
+  {
+    "prefix": "package springbootstarter;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBoot",
+    "suffix": "Application.run(SpringbootstarterApplication.class, args);\n\t}\n\n}\n",
+    "target": "Application\npublic class SpringbootstarterApplication {\n\n\tpublic static void main(String[] args) {\n\t\tSpring"
+  },
+  {
+    "prefix": "package com.mossle.ext.message;\n\nimport javax.j",
+    "suffix": "\n    public ProxyTopic(String name) {\n        this.name = name;\n    }\n\n    public String getTopicName() throws JMSException {\n        return name;\n    }\n\n    public String toString() {\n        return name;\n    }\n}\n",
+    "target": "ms.JMSException;\nimport javax.jms.Topic;\n\npublic class ProxyTopic implements Topic {\n    private String name;\n"
+  },
+  {
+    "prefix": "package network.ycc.raknet.",
+    "suffix": ".channel.SimpleChannelInboundHandler;\n\n@ChannelHandler.Sharable\npublic class PongHandler extends SimpleChannelInboundHandler<Pong> {\n\n    public static final String NAME = \"rn-pong\";\n    public static final PongHandler INSTANCE = new PongHandler();\n\n    protected void channelRead0(ChannelHandlerContext ctx, Pong pong) {\n        if (!pong.getReliability().isReliable) {\n            final RakNet.Config config = RakNet.config(ctx);\n            config.updateRTTNanos(pong.getRTT());\n        }\n    }\n\n}\n",
+    "target": "pipeline;\n\nimport network.ycc.raknet.RakNet;\nimport network.ycc.raknet.packet.Pong;\n\nimport io.netty.channel.ChannelHandler;\nimport io.netty.channel.ChannelHandlerContext;\nimport io.netty"
+  },
+  {
+    "prefix": "public class FindPeakElement {\n    // 最简单的O(n)算法，一直比较直到出现peak（即出现右邻居更大的情况）\n    public int findPeakElementNaive(int[] nums) {\n        if (nums == null || nums.length == 0) return -1;\n        int res = 0, n = nums.length;\n        while (res < n - 1 && nums[res] < nums[res + 1]) res++;\n        return res;\n    }\n\n    // 二分的解法。这个需要一点思考\n    // 首先题目条件不会出现两个相邻数相等，而且保证存在peak\n    // 每次比较的时候，中间的数如果比它右边大，左侧一定有解（可能就是mid，也可能在前面，看一直递增区间的末尾），右侧未必",
+    "suffix": "s.length - 1;\n        while (low < high) {\n            int mid = low + (high - low) / 2;\n            if (nums[mid] < nums[mid + 1]) low = mid + 1;\n            else high = mid;\n        }\n        return low;\n    }\n}\n",
+    "target": "有解（比如右侧是递减的）；\n    // 中间的数如果比右边小，那么这个数可能不可能是一个peak。这个时候，左边未必有解（比如左侧是递增的），但是右边一定有解（看右边一直递增区间的末尾）。\n    public int findPeakElement(int[] nums) {\n        if (nums == null || nums.length == 0) return -1;\n        int low = 0, high = num"
+  },
+  {
+    "prefix": "package es.urjc.code.pr",
+    "suffix": "QuestionAnswer extends QuestionAnswer<BigDecimal> {\n    public NumericQuestionAnswer(String questionCode, BigDecimal answer) {\n        super(questionCode, answer);\n    }\n}\n\n",
+    "target": "icing.application.dto;\n\nimport java.math.BigDecimal;\n\npublic class Numeric"
+  },
+  {
+    "prefix": "package gr.sperfect.d",
+    "suffix": "\r\n\tprivate String url;\r\n\tpublic String getUrl() {\r\n\t\treturn url;\r\n\t}\r\n\tpublic void setUrl(String url) {\r\n\t\tthis.url = url;\r\n\t}\r\n\tpublic Long getHeight() {\r\n\t\treturn height;\r\n\t}\r\n\tpublic void setHeight(Long height) {\r\n\t\tthis.height = height;\r\n\t}\r\n\tpublic Long getWidth() {\r\n\t\treturn width;\r\n\t}\r\n\tpublic void setWidth(Long width) {\r\n\t\tthis.width = width;\r\n\t}\r\n\r\n}\r\n",
+    "target": "juqbox.webapp.shared.data;\r\n\r\nimport com.googlecode.objectify.annotation.Entity;\r\n\r\n@Entity\r\npublic class Thumbnail extends BaseDataClass {\r\n\r\n\tprivate Long width;\r\n\tprivate Long height;"
+  },
+  {
+    "prefix": "class C {\n    {\n      String s;\n        s = \"\";\n        System",
+    "suffix": " }\n}",
+    "target": ".out.println(s);\n   "
+  },
+  {
+    "prefix": "package org.xpdojo.bank;\n\nimport static java.lang.Boolean.FALSE;\nimport static java.lang.Boolean.TRUE;\n\npublic class Account {\n\n    private int balance;\n\n    public static Account emptyAccount() {\n        return new Account();\n    }\n    public int balance() {\n\n        return balance;\n    }\n\n    public void deposit(int i) {\n        balance += i;\n        //self.\n    }\n    public boolean withdraw(int i) {\n        boolean operationPermitted=FALSE;\n        if (balance>=i",
+    "suffix": "Receiver.deposit(i);\n        }\n    }\n}\n",
+    "target": ") {\n            balance -=i;\n            operationPermitted=TRUE;\n        }\n\n        return operationPermitted;\n    }\n\n    public void transfer(int i,Account accountReceiver) {\n        if (withdraw(i)==TRUE) {\n            account"
+  },
+  {
+    "prefix": "package com.ormv.customexceptions;\n",
+    "suffix": "\tpublic NoIdInClass(String message) {\n\t\tsuper(message);\n\t}\n}\n",
+    "target": "\npublic class NoIdInClass extends RuntimeException{\n\t\n"
+  },
+  {
+    "prefix": "package app;\n//计算n至少多大时，以下不等式成立：\n//     1+1/2+",
+    "suffix": ";\n        double sum = 0;\n        while(sum < 6){\n            sum = sum + 1/n;\n            n+=1;\n        }\n        System.out.println(\"当n至少为\" + n + \"时,不等式成立.\");\n    }\n}",
+    "target": "1/3+...+1/n>6\n\npublic class EvalN {\n    public static void main(String[] args) throws Exception {\n        double n = 1"
+  },
+  {
+    "prefix": "import cn.jiangzeyin.common.JsonMessage;\nimport com",
+    "suffix": " void setS(String s) {\n            this.s = s;\n        }\n    }\n\n    public static void main(String[] args) {\n        JSONObject jsonObject = new JSONObject();\n        jsonObject.put(\"code\", 1);\n        jsonObject.put(\"msg\", \"sss\");\n\n        JSONObject jsonObject1 = new JSONObject();\n        jsonObject1.put(\"s\", \"sssssss11111111\");\n        jsonObject.put(\"data\", jsonObject1);\n\n        JsonMessage<ts> tsJsonMessage = JsonMessage.toJsonMessage(jsonObject.toString(), ts.class);\n\n        System.out.println(tsJsonMessage.getData().getS());\n    }\n}\n",
+    "target": ".alibaba.fastjson.JSONObject;\n\n/**\n * @author bwcx_jzy\n * @date 2019/8/13\n */\npublic class TestJson {\n\n    public static class ts {\n        private String s;\n\n        public String getS() {\n            return s;\n        }\n\n        public"
+  },
+  {
+    "prefix": "package org.cthul.monad.function;\n\nimport org.cthul.monad.error",
+    "suffix": "function.Consumer<T> consumer) {\n        return consumer::accept;\n    }\n    \n    void accept(T t) throws X;\n\n    default CheckedConsumer<T, X> with(ErrorHandler errorHandler) {\n        return t -> {\n            try (final ErrorHandlingScope context = errorHandler.enable()) {\n                accept(t);\n            }\n        };\n    }\n\n    default CheckedConsumer<T, X> with(ErrorHandlerLayer errorHandlerLayer) {\n        return t -> {\n            try (final ErrorHandlingScope context = errorHandlerLayer.enable()) {\n                accept(t);\n            }\n        };\n    }\n}\n",
+    "target": ".ErrorHandler;\nimport org.cthul.monad.error.ErrorHandlerLayer;\nimport org.cthul.monad.error.ErrorHandlingScope;\n\npublic interface CheckedConsumer<T, X extends Exception> {\n\n    static <T> UncheckedConsumer<T, RuntimeException> from(java.util."
+  },
+  {
+    "prefix": "package com.codebroker.red",
+    "suffix": " interface SetStructure<T> {\n\n    Set<T> createSet(String key);\n\n    void delete(String key);\n}\n",
+    "target": "is.collections;\n\nimport java.util.Set;\n\npublic"
+  },
+  {
+    "prefix": "// Copyright 2004-present Facebook. All Rights Reserved.\n\npackage com.facebook.litho.animation;\n\n/**\n * A property (e.g. scale, opacity) on a component that's appearing.\n */\npublic class AppearingFloatComponentProperty extends FloatComponentProperty {\n\n  public Appe",
+    "suffix": ".AbstractBuilder builderDelegate) {\n      mBuilderDelegate = builderDelegate;\n    }\n\n    /**\n     * Transition this property on an appearing component from the given absolute value.\n     */\n    public TransitionBuilder from(float value) {\n      mFromValue = new LazyFloatValue(value);\n      return this;\n    }\n\n    public AnimationBinding build() {\n      return mBuilderDelegate.buildForAppear(mFromValue);\n    }\n  }\n}\n",
+    "target": "aringFloatComponentProperty(\n      AppearingComponent animatedComponent,\n      AnimatedProperty property) {\n    super(animatedComponent, property);\n  }\n\n  public static class TransitionBuilder {\n\n    private final Animated.AbstractBuilder mBuilderDelegate;\n    private LazyFloatValue mFromValue;\n\n    public TransitionBuilder(Animated"
+  },
+  {
+    "prefix": "package net.mgsx.game.examples.openworld.components;\n\nimport com.badlogic.ashley.core.Component;\nimport com.badlogic.ashley.core.ComponentMapper;\nimport com.badlogic.gdx.",
+    "suffix": " CellDataComponent implements Component, Poolable\n{\n\tpublic final static ComponentMapper<CellDataComponent> components = ComponentMapper.getFor(CellDataComponent.class);\n\t\n\tpublic CellData data;\n\n\t@Override\n\tpublic void reset() {\n\t\tOpenWorldPool.freeCellData(data);\n\t\tdata = null;\n\t}\n\t\n}\n",
+    "target": "utils.Pool.Poolable;\n\nimport net.mgsx.game.examples.openworld.model.OpenWorldPool;\nimport net.mgsx.game.examples.openworld.model.OpenWorldPool.CellData;\n\npublic class"
+  },
+  {
+    "prefix": "/*\n * Copyright (c) 2013 ICM Uniwersytet Warszawski All rights reserved.\n * See LICENCE.txt file for licensing information.\n */\npackage pl.edu.icm.unity.server.endpoint;\n\n",
+    "suffix": " * @author K. Benedyczak\n */\npublic interface EndpointFactory\n{\n\tpublic EndpointTypeDescription getDescription();\n\tpublic EndpointInstance newInstance();\n}\n",
+    "target": "import pl.edu.icm.unity.types.endpoint.EndpointTypeDescription;\n\n/**\n * Implemented by a class which allows to create an endpoint instance ready for hot deployment.\n"
+  },
+  {
+    "prefix": "package be.beardhatcode.bookeep.dbo;\n\n\nimport be.beardhatcode.bookeep.Tag;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.jdbc.core.JdbcTemplate;\nimport org.",
+    "suffix": " @Autowired\n    public TagDAO(JdbcTemplate jdbcTemplate) {\n        super(jdbcTemplate,\"statements\");\n    }\n\n    protected Tag buildFromResultSet(ResultSet rs) throws SQLException {\n        return new Tag(\n                rs.getLong(\"id\"),\n                rs.getString(\"name\")\n        );\n    }\n}\n",
+    "target": "springframework.stereotype.Component;\nimport org.springframework.stereotype.Service;\n\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\n\n\n@Component\n@Service\npublic class TagDAO extends DAO<Tag> {\n   "
+  },
+  {
+    "prefix": "// \"Replace with old style 'switch' statement\" \"true\"\nimport java.util.*;\n\nclass SwitchExpressionMigration {\n  private static void m(int x) {\n    /*1*/return/*2*/ switch<caret> /*3*/(/*4*/x +/*5*/ x/*6*/) /*7",
+    "suffix": "15*/ 2 -> /*16*/2 +/*17*/ 2;\n      case 3, 4 -> {\n        System.out.println(\"asda\");\n        break 3;\n      }\n      /*18*/default/*19*/ -> 12 /*20*/ + 12;\n    };\n  }\n}",
+    "target": "*/ {\n      /*8*/case /*9*/ 1 +/*10*/ 1 -> /*11*/{if (true /*12*/)\n        /*13*/break /*14*/ 0;\n      else\n        break 1;\n      }\n      case/*"
+  },
+  {
+    "prefix": "package pers.huangyuhui.decorator_pattern.decorator_pattern_1;\n\n/**\n * @project: design-patterns\n * @description: 构件装饰类, 充当抽象装饰类\n * @author: 黄宇辉",
+    "suffix": "\n\n    //维持对抽象构件类型对象的引用\n    private Component component;\n\n    //注入抽象构件类型的对象\n    public ComponentDecorator(Component component) {\n        this.component = component;\n    }\n\n    @Override\n    public void display() {\n        component.display();\n    }\n}\n",
+    "target": "\n * @date: 9/9/2019-2:52 PM\n * @version: 1.0\n * @website: https://yubuntu0109.github.io/\n */\npublic class ComponentDecorator extends Component {"
+  },
+  {
+    "prefix": "// Copyright (c) Microsoft Corporation. All rights reserved.\n// Licensed under the MIT License.\n// Code generated by Microsoft (R) AutoRest Code Generator.\n\npackage com.azure.resourcemanager.scvmm.generated;\n\nimport com.azure.core.util.Context;\n\n/** Samples for VmmServers ListByResourceGroup. */\npublic final class VmmServersListBy",
+    "suffix": "VmmServersByResourceGroup.\n     *\n     * @param manager Entry point to ScvmmManager.\n     */\n    public static void listVmmServersByResourceGroup(com.azure.resourcemanager.scvmm.ScvmmManager manager) {\n        manager.vmmServers().listByResourceGroup(\"testrg\", Context.NONE);\n    }\n}\n",
+    "target": "ResourceGroupSamples {\n    /*\n     * x-ms-original-file: specification/scvmm/resource-manager/Microsoft.ScVmm/preview/2020-06-05-preview/examples/ListVMMServersByResourceGroup.json\n     */\n    /**\n     * Sample code: List"
+  },
+  {
+    "prefix": "package stu.napls.nabootweb.config.property;\n\nimport lombok.Getter;\nimport org.springframework",
+    "suffix": "Date 12/31/2019\n */\n@Component\n@Getter\npublic class SocketServer {\n\n    @Value(\"${socketserver.url}\")\n    private String url;\n}\n",
+    "target": ".beans.factory.annotation.Value;\nimport org.springframework.stereotype.Component;\n\n/**\n * @Author Tei Michael\n * @"
+  },
+  {
+    "prefix": "package in.ashwanik.dcp.problems.p121_150.p121;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\npublic class SolutionTest {\n    @Test\n    void testIsAtMostKPalindrome(){\n",
+    "suffix": "abcdecba\",1));\n    }\n}\n",
+    "target": "        assertTrue(new Solution().isAtMostKPalindrome(\"waterrfetawx\",2));\n        assertTrue(new Solution().isAtMostKPalindrome(\""
+  },
+  {
+    "prefix": "package com.yehao.boot.rules.experiment.confition;\n\nimport lombok.Data;\n\nimport java.util.List;\n\n/**\n * @author",
+    "suffix": " */\n@Data\npublic class ExpressCondition extends ExperimentCondition {\n    public ExpressCondition() {\n        super(ConditionMode.EXPRESS);\n    }\n    private List<String> fields;\n}\n",
+    "target": " : LiuYong at 2020-09-17\n * @package: com.yehao.boot.rules.experiment.confition\n"
+  },
+  {
+    "prefix": "package com.justserver.apocalypse.items;\n\nimport org.bukkit.ChatColor;\nimport static org.bukkit.ChatColor.*;\n\npublic enum ItemRarity {\n    COMMON,UNCOMMON,RARE,EPIC,LEGENDARY;\n\n    Chat",
+    "suffix": "ARK_PURPLE;\n            case LEGENDARY:\n                return GOLD;\n            default: return WHITE;\n        }\n    }\n}\n",
+    "target": "Color getColor(){\n        switch (this){\n            case UNCOMMON:\n                return GREEN;\n            case RARE:\n                return BLUE;\n            case EPIC:\n                return D"
+  },
+  {
+    "prefix": "/*\r\n * To change this template, choose Tools | Templates\r\n * and open the template in the editor.\r\n */\r\npackage adapp.controle.mvc;\r\n\r\nimport java.text.SimpleDateFormat;\r\n\r\n/**\r\n *\r\n * @author hiragi\r\n */\r\npublic class Util {\r\n\r\n    public static java.sql.Date stringToDate(String dta) {\r\n        java.sql.Date data;\r\n        int dia = Integer.parseInt(dta.substring(0, 2));\r\n        int mes = Integer.parseInt(dta.substring(3, ",
+    "suffix": "ta;\r\n        SimpleDateFormat sdf = new SimpleDateFormat(\"dd/MM/yyyy\");\r\n        dta = sdf.format(data);\r\n        return dta;\r\n    }\r\n}\r\n",
+    "target": "5));\r\n        int ano = Integer.parseInt(dta.substring(6, 10));\r\n        data = new java.sql.Date(ano - 1900, mes - 1, dia);\r\n        return data;\r\n    }\r\n\r\n    public static String dateToString(java.sql.Date data) {\r\n        String d"
+  },
+  {
+    "prefix": "package igor.example.logutil;\n\nimport android.nfc.Tag;\nimport android",
+    "suffix": " \"Super app\";\n    public static void d(String message){\n        Log.d(TAG, message);\n    }\n}\n",
+    "target": ".util.Log;\n\npublic class LogDebug {\n\n    private static final String TAG ="
+  },
+  {
+    "prefix": "package com.araguacaima.braas.api.common;\n\npublic class Message {\n\n    private String code;\n    private String message;\n    private SeverityMessage severity;\n\n    public String getCode() {\n        return code",
+    "suffix": ") {\n        this.message = message;\n    }\n\n    public SeverityMessage getSeverity() {\n        return severity;\n    }\n\n    public void setSeverity(SeverityMessage severity) {\n        this.severity = severity;\n    }\n}\n",
+    "target": ";\n    }\n\n    public void setCode(String code) {\n        this.code = code;\n    }\n\n    public String getMessage() {\n        return message;\n    }\n\n    public void setMessage(String message"
+  },
+  {
+    "prefix": "/*\n * Copyright (c) 2003, Oracle and/or its affiliates. All rights reserved.\n * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to",
+    "suffix": " wrapping <code>byte[]</code> objects.\n *\n * @author   Brian Doherty\n */\npublic interface ByteArrayCounter extends Counter {\n\n    /**\n     * Get a copy of the elements of the ByteArrayCounter.\n     */\n    public byte[] byteArrayValue();\n\n    /**\n     * Get the value of an element of the ByteArrayCounter object.\n     */\n    public byte byteAt(int index);\n}\n",
+    "target": " license terms.\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n *\n */\n\npackage sun.management.counter;\n\n/**\n * Interface for performance counter"
+  },
+  {
+    "prefix": "package net.csibio.propro.domain.query;\n\nimport lombok.Data;\nimport lombok.experimental.Accessors;\n\nimport java.util.List;\n\n@Data\n@Accessors(chain = true)\npublic class DataQuery extends PageQuery {\n\n    String id;\n\n    List<String> ids;\n\n    //路由id\n    String projectId;\n\n    String overviewId;\n\n    Integer status;\n\n    String peptideRef;\n\n    String protein;\n\n    Boolean decoy;\n\n    Double mzStart;\n\n    Double mzEnd",
+    "suffix": "    }\n}\n",
+    "target": ";\n\n    public DataQuery() {\n    }\n\n    public DataQuery(String overviewId) {\n        this.overviewId = overviewId;\n    }\n\n    public DataQuery(int pageNo, int pageSize) {\n        super(pageNo, pageSize);\n"
+  },
+  {
+    "prefix": "package com.claim.bookstore.main;\r\n\r\nimport java.util.List;\r\n\r\nimport com.claim.bookstore.model.Book;\r\nimport com.claim.bookstore.service.BookService;\r\nimport com.claim.bookstore.service.BookServiceImpl;",
+    "suffix": "println(\"Searching Books by Keyword: Java\");\r\n\r\n\t\tsearchBooksByKeyword(\"java\");\r\n\r\n\t}\r\n\r\n\tprivate static void findAllBooks() {\r\n\t\tList<Book> books = bookService.findAll();\r\n\t\tfor (Book book : books) {\r\n\t\t\tSystem.out.println(book);\r\n\t\t}\r\n\t}\r\n\r\n\tprivate static void searchBooksByKeyword(String keyWord) {\r\n\t\tList<Book> books = bookService.searchBooksByKeyword(keyWord);\r\n\t\tfor (Book book : books) {\r\n\t\t\tSystem.out.println(book);\r\n\t\t}\r\n\t}\r\n\r\n}",
+    "target": "\r\n\r\npublic class BookApp {\r\n\tprivate static BookService bookService = new BookServiceImpl();\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\t// List all books\r\n\t\tSystem.out.println(\"Listing all Books:\");\r\n\t\tfindAllBooks();\r\n\r\n\t\tSystem.out.println(\"++++++++++++++++++++++++++++++\");\r\n\r\n\t\tSystem.out."
+  },
+  {
+    "prefix": "package de.rwth.imi.flare.api;\n\nimport de.rwth.imi.flare.api.model.Query;\n\nimport java.util.concurrent.CompletableFuture;\n\n/**\n * The",
+    "suffix": "     * @param mappedQuery Query with all mapping information\n     * @return A CompletableFuture that when executed yields the number of patients matching the given query\n     */\n    CompletableFuture<Integer> calculatePatientCount(Query mappedQuery);\n}\n",
+    "target": " Executor asynchronously executes an entire Query and aggregates the returned data\n */\npublic interface Executor\n{\n    /**\n     * Executes the query, and aggregates the returned patients into a count\n"
+  },
+  {
+    "prefix": "package com.modofo.mofire.domain;\n\nimport com.modofo.mofire.Constants;\n\npublic class SoundAttachment {\n\tprivate String filePath; //when the post stored in local\n\tprivate String type = Constants.ATTACHMENT_TYPE_SOUND;\n\tprivate byte[] byteData;\n\tpublic",
+    "suffix": "(String type) {\n\t\tthis.type = type;\n\t}\n\n\tpublic byte[] getByteData() {\n\t\treturn byteData;\n\t}\n\n\tpublic void setByteData(byte[] byteData) {\n\t\tthis.byteData = byteData;\n\t}\n\t\n}\n",
+    "target": " String getFilePath() {\n\t\treturn filePath;\n\t}\n\n\tpublic void setFilePath(String filePath) {\n\t\tthis.filePath = filePath;\n\t}\n\n\tpublic String getType() {\n\t\treturn type;\n\t}\n\n\tpublic void setType"
+  },
+  {
+    "prefix": "package com.github.vole.portal.data.mapper;\r\n\r\n\r\nimport com.baomid",
+    "suffix": "ysSetting;\r\n\r\n/**\r\n *\r\n * SysSetting 表数据库控制层接口\r\n *\r\n */\r\npublic interface SysSettingMapper extends BaseMapper<SysSetting> {\r\n\r\n\r\n}",
+    "target": "ou.mybatisplus.core.mapper.BaseMapper;\r\nimport com.github.vole.portal.data.model.entity.S"
+  },
+  {
+    "prefix": "package com.asb.demo.lambdas.factory.impl;\n\nimport com.asb.demo.lambdas.factory.DnCLambdaFactory;\nimport com.asb.demo.lambd",
+    "suffix": "ase and Conquer.\n * Created by arjun on 19/06/16.\n */\npublic class DPLambdaFactory\n        implements DnCLambdaFactory<Integer, Set<String>, DPTypes> {\n    @Override\n    public DnCLambdas<Integer, Set<String>> lambda(DPTypes type) {\n        DnCLambdas<Integer, Set<String>> lambdas = null;\n        switch (type) {\n\n            case BRACKETS:\n                lambdas = new Brackets();\n                break;\n\n        }\n        return lambdas;\n    }\n}\n",
+    "target": "as.strategies.DnCLambdas;\nimport com.asb.demo.lambdas.strategies.constants.DPTypes;\nimport com.asb.demo.lambdas.strategies.impl.dp.Brackets;\n\nimport java.util.Set;\n\n/**\n * DP Lambda Factory for Decre"
+  },
+  {
+    "prefix": "package com.blackjade.crm.util.apis;\n\n\nimport java.util.UUID;\n\n/**\n * Created by Administrator on 2018/8/30.\n */\npublic class GetFreshAddress {\n    private UUID requestid;\n    private String messageid;\n    private int customerId;\n\n    public UUID getRequestid() {\n        return requestid;\n    }\n\n    public void setRequestid(UUID requestid) {\n        this.requestid = requestid;\n    }",
+    "suffix": "\n\n    public void setCustomerId(int customerId) {\n        this.customerId = customerId;\n    }\n}\n",
+    "target": "\n\n    public String getMessageid() {\n        return messageid;\n    }\n\n    public void setMessageid(String messageid) {\n        this.messageid = messageid;\n    }\n\n    public int getCustomerId() {\n        return customerId;\n    }"
+  },
+  {
+    "prefix": "package com.wordpress.mobilecoder.webosmark.stats;\n\nimport javax.jdo.annotations.IdGeneratorStrategy;\nimport javax.jdo.annotations.PersistenceCapable;\nimport javax.jdo.annotations.Persistent;\nimport javax.jdo.annotations.PrimaryKey;\n\nimport com.google.appengine.api.datastore.Key;\n\n@PersistenceCapable\npublic class Comment {\n\n\t@PrimaryKey\n\t@Persistent(valueStrategy",
+    "suffix": "String device) {\n\t\tthis.device = device;\n\t}\n\n\tpublic String getDevice() {\n\t\treturn device;\n\t}\n\n\tpublic void setComment(String comment) {\n\t\tthis.comment = comment;\n\t}\n\n\tpublic String getComment() {\n\t\treturn comment;\n\t}\n}\n",
+    "target": " = IdGeneratorStrategy.IDENTITY)\n\tprivate Key key;\n\t\n\t@Persistent\n\tprivate String device;\n\t\n\t@Persistent\n\tprivate String comment;\n\n\tpublic void setKey(Key key) {\n\t\tthis.key = key;\n\t}\n\n\tpublic Key getKey() {\n\t\treturn key;\n\t}\n\n\tpublic void setDevice("
+  },
+  {
+    "prefix": "package io.bdeploy.api.remote.v1.dto;\n\nimport com.fasterxml.jackson.annotation.JsonEnumDefaultValue;\n\nimport io.bdeploy.bhive.model.Manifest;\n\npublic class InstanceConfigurationApi {\n\n    public enum InstancePurposeApi {\n        @JsonEnumDefaultValue\n        PRODUCT",
+    "suffix": " description of the instance.\n     */\n    public String description;\n\n    /**\n     * The intended use of the deployed software.\n     */\n    public InstancePurposeApi purpose = InstancePurposeApi.DEVELOPMENT;\n\n    /**\n     * The key of the product which was used to create the instance.\n     */\n    public Manifest.Key product;\n\n}\n",
+    "target": "IVE,\n        TEST,\n        DEVELOPMENT\n    }\n\n    /**\n     * Globally unique identifier of the instance.\n     */\n    public String uuid;\n\n    /**\n     * Short name of the instance.\n     */\n    public String name;\n\n    /**\n     * Optional Human readable"
+  },
+  {
+    "prefix": "package org.lean.",
+    "suffix": "public class ILeanDialog {\n}\n",
+    "target": "core.dialog;\n\n"
+  },
+  {
+    "prefix": "package com.sforce.soap.partner;\r\n\r\n/**\r\n * Generated by ComplexTypeCodeGenerator.java. Please do not edit.\r\n */\r\npublic interface IProcessWorkitemRequest extends com.sforce.soap.partner.IProcessRequest {\r\n\r\n      /**\r\n       * element : action of type {http://www.w3.org/2001/XMLSchema}string\r\n       * java type: java.lang.String\r\n       */\r\n\r\n      public java.lang.String getAction();\r\n\r\n     ",
+    "suffix": " getWorkitemId();\r\n\r\n      public void setWorkitemId(java.lang.String workitemId);\r\n\r\n\r\n}\r\n",
+    "target": " public void setAction(java.lang.String action);\r\n\r\n      /**\r\n       * element : workitemId of type {urn:partner.soap.sforce.com}ID\r\n       * java type: java.lang.String\r\n       */\r\n\r\n      public java.lang.String"
+  },
+  {
+    "prefix": "package org.example.coffee.grind;\n\nimport io.avaje.inject.BeanScope;\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class AMusherTest {\n\n  @Test\n  public void getCountInit() {\n\n    AMusher aMusher;\n    try (BeanScope context = BeanScope.newBuilder().build()) {\n",
+    "suffix": "Init(), 1);\n    assertEquals(aMusher.getCountClose(), 1);\n  }\n}\n",
+    "target": "      aMusher = context.get(AMusher.class);\n      assertEquals(aMusher.getCountInit(), 1);\n      assertEquals(aMusher.getCountClose(), 0);\n    }\n    assertEquals(aMusher.getCount"
+  },
+  {
+    "prefix": "package com.agiklo.oracledatabase.repository;\n\nimport com.agiklo.oracled",
+    "suffix": "import org.springframework.stereotype.Repository;\n\n@Repository\npublic interface ProductUnitsRepository extends JpaRepository<ProductUnits, Long> {\n}\n",
+    "target": "atabase.entity.ProductUnits;\nimport org.springframework.data.jpa.repository.JpaRepository;\n"
+  },
+  {
+    "prefix": "package com.lion.auth;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.cloud.client.discovery.EnableDiscoveryClient;\nimport org.springframework.",
+    "suffix": "8\n * Copyright 2019 Yanzheng. All rights reserved.\n */\n@SpringBootApplication\n@EnableDiscoveryClient\n@EnableFeignClients(\"com.lion.auth.client\")\n@EnableHystrix\npublic class AuthApplication {\n\n    public static void main(String[] args) {\n        SpringApplication.run(AuthApplication.class, args);\n    }\n\n}\n",
+    "target": "cloud.netflix.hystrix.EnableHystrix;\nimport org.springframework.cloud.openfeign.EnableFeignClients;\n\n/**\n * AuthApplication\n * TODO\n *\n * @author Yanzheng\n * @date 2019/04/0"
+  },
+  {
+    "prefix": "package top.chenqwwq.leetcode.daily._20211108;\n\n/**\n * @author chen\n * @date 2021-11-08\n **/\npublic class Solution {\n\tpublic String getHint(String secret, String guess) {\n\t\tfinal int n = secret.length();\n\t\tint[] hash = new int[10];\n\t\tint a = 0, b = 0;\n\t\tfor (int i = 0; i < n; i++) {\n\t\t\tfinal char c1 = secret.charAt(i), c2 = guess",
+    "suffix": " {\n\t\t\t\tb++;\n\t\t\t}\n\t\t}\n\t\treturn a + \"A\" + b + \"B\";\n\t}\n}\n",
+    "target": ".charAt(i);\n\t\t\tif (c1 == c2) {\n\t\t\t\ta++;\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t\tif (hash[c2 - '0']++ < 0) {\n\t\t\t\tb++;\n\t\t\t}\n\t\t\tif (hash[c1 - '0']-- > 0)"
+  },
+  {
+    "prefix": "package com.ruanyun.chezhiyi.commonlib.model.restult;\n\nimport com",
+    "suffix": "xUserGroup;\n\nimport java.util.List;\n\n/**\n * Description:\n * author: zhangsan on 16/8/1 上午9:31.\n */\npublic class HxUserGroupResult extends ResultBase<List<HxUserGroup>> {\n}\n",
+    "target": ".ruanyun.chezhiyi.commonlib.base.ResultBase;\nimport com.ruanyun.chezhiyi.commonlib.model.H"
+  },
+  {
+    "prefix": "package com.tzj.garvel.cli.api.parser.ast;\n\nimport java.util.Objects;\n\npublic class TargetNameAst {\n    private Identifier id;\n\n    public TargetNameAst(final Identifier id) {\n        this.id = id;\n    }\n\n    @Override\n    public boolean equals(final Object o) {\n        if (this == o) return true;\n        if (o == null || getClass() != o.getClass",
+    "suffix": " '}';\n    }\n\n    @Override\n    public int hashCode() {\n        return Objects.hash(id);\n    }\n\n    public Identifier getId() {\n        return id;\n    }\n}\n",
+    "target": "()) return false;\n        final TargetNameAst that = (TargetNameAst) o;\n        return Objects.equals(id, that.id);\n    }\n\n    @Override\n    public String toString() {\n        return \"TargetNameAst{\" +\n                \"id=\" + id +\n               "
+  },
+  {
+    "prefix": "package io.oasp.module.json.common.base.type;\n\nimport org.springframework.data.domain.Pageable;\n\nimport com.fasterxml.jackson.databind.module.SimpleModule;\n\nimport io.oasp.module.json.common.base.ObjectMapperFactory;\nimport io.oasp.module.json.common.base.type.PageableJsonDeserializer;\nimport io.oasp.module.json.common.base.type.PageableJsonSerializer;\n\n/**\n * {@link ObjectMapperFactory} for testing.\n */\npublic class TestObjectMapper",
+    "suffix": "izer(Pageable.class, new PageableJsonDeserializer());\n  }\n\n}\n",
+    "target": "Factory extends ObjectMapperFactory {\n\n  /**\n   * The constructor.\n   */\n  public TestObjectMapperFactory() {\n\n    super();\n    SimpleModule module = getExtensionModule();\n    module.addSerializer(Pageable.class, new PageableJsonSerializer());\n    module.addDeserial"
+  },
+  {
+    "prefix": "package ru.eexxyyq.solutions.tasks.week2;\n\n/**\n * На болоте есть n островков, выстроенных в линию. Лягушка находится на первом, но хочет попасть на последний.\n * Дан массив из n-1 натуральных чисел - расстояние в метрах между островками. Лягушка может прыгать на k метров",
+    "suffix": " index = 0;\n        while (index < arr.length) {\n            if (arr[index] > k) {\n                return -1;\n            }\n            if (sum <= k) {\n                sum += arr[index];\n                if (sum <= k) {\n                    index++;\n                }\n            } else {\n                result++;\n                sum = 0;\n            }\n        }\n        if (sum != 0) {\n            result++;\n        }\n        return result;\n    }\n}\n",
+    "target": ".\n * Найти минимальное количество прыжков, которое надо сделать лягушке.\n * N <= 10^6\n */\npublic class Task3 {\n\n    public static int solution(int[] arr, int k) {\n        if (arr.length == 0) {\n            return -1;\n        }\n        int result = 0;\n        int sum = 0;\n        int"
+  },
+  {
+    "prefix": "package cs6301.g26;\n\n\n/**\n * Created by Ankitha on 8/",
+    "suffix": " System.out.println(\"Failed to insert\");\n                queue.resize();\n                queue.offer(i);\n            }\n        }\n        for (int i = 0; i < 26; i++) {\n            System.out.print(queue.poll() + \" \");\n        }\n\n        queue.resize();\n\n        for (int i = 0; i < 11; i++) {\n            if (!queue.offer(i)) {\n                System.out.println(\"Failed to insert\\n\");\n                queue.resize();\n                queue.offer(i);\n            }\n        }\n\n        for (int i = 0; i < 17; i++) {\n            System.out.print(queue.poll() + \" \");\n        }\n    }\n\n\n}\n",
+    "target": "31/2017.\n * Driver programs for Custom Queue, the actual implementation is in CustomQueue class\n */\npublic class Problem5 {\n    public static void main(String args[]) {\n        CustomQueue<Integer> queue = new CustomQueue(6);\n        for (int i = 0; i < 32; i++) {\n            if (!queue.offer(i)) {\n               "
+  },
+  {
+    "prefix": "package ru.job4j.",
+    "suffix": "\n\n    @Test\n    public void whenPairWithoutComment() {\n        String path = \"src/main/resources/pair_without_comments.properties\";\n        Config config = new Config(path);\n        config.load();\n        String actual = config.value(\"hibernate.connection.driver_class\");\n        String expect = \"org.postgresql.Driver\";\n        assertThat(actual, is(expect));\n    }\n}",
+    "target": "io;\n\nimport org.junit.Test;\n\nimport static org.hamcrest.Matchers.is;\nimport static org.junit.Assert.assertThat;\n\npublic class ConfigTest {"
+  },
+  {
+    "prefix": "package com.googlecode.hibernate.memcached;\n\n/**\n * Transforms the key object using key.hashCode()\n *\n * @deprecated as of 1.3 HashCodeKeyStrategy is deprecated and Sha1KeyStrategy is the default.",
+    "suffix": " hashCode = key.hashCode();\n        log.debug(\"Transformed key [{}] to hashCode [{}]\", key, hashCode);\n        return String.valueOf(hashCode);\n    }\n\n}\n",
+    "target": " Use that instead.\n * @author Ray Krueger\n */\n@Deprecated\npublic class HashCodeKeyStrategy extends AbstractKeyStrategy {\n\n    protected String transformKeyObject(Object key) {\n        int"
+  },
+  {
+    "prefix": "package ix.core;\n\nimport ix.core.controllers.search.SearchRequest;\n\nimport java.lang.annotation.Documented;\nimport java.lang.annotation.ElementType;\nimport java.lang.annotation.Retention;\nimport java.lang.annotation.RetentionPolicy",
+    "suffix": " NamedResource {\n    String name ();\n    Class type ();\n    String description () default \"\";\n    boolean adminOnly() default false;\n    boolean allowSearch() default true;\n\n    Class<? extends SearchRequest.Builder> searchRequestBuilderClass() default SearchRequest.Builder.class;\n}\n",
+    "target": ";\nimport java.lang.annotation.Target;\nimport java.util.function.Supplier;\n\n@Documented\n@Retention(value=RetentionPolicy.RUNTIME)\n@Target(value={ElementType.TYPE})\npublic @interface"
+  },
+  {
+    "prefix": "package ru",
+    "suffix": "springframework.stereotype.Repository;\nimport ru.duckest.entity.PassThreshold;\n\nimport java.util.UUID;\n\n@Repository\npublic interface PassThresholds extends CrudRepository<PassThreshold, UUID> {\n\n}\n",
+    "target": ".duckest.repository;\n\nimport org.springframework.data.repository.CrudRepository;\nimport org."
+  },
+  {
+    "prefix": "package ru.job4j.tracker;\n\n/**\n * This class is the decorator for valid inputs.\n */",
+    "suffix": "\n",
+    "target": "\npublic abstract class ValidInput implements Input {\n}"
+  },
+  {
+    "prefix": "/*\n * Copyright 2006 University of Virginia\n * \n * Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may\n * obtain a copy of the License at\n * \n * http://www.apache.org/licenses/LICENSE-2.0\n * \n * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,",
+    "suffix": "{\n\tpublic ICallingContext resolveContext() throws IOException, FileNotFoundException;\n\n\tpublic void storeCurrentContext(ICallingContext ctxt) throws FileNotFoundException, IOException;\n\n\tpublic Object clone();\n}\n",
+    "target": " either express or implied. See the License for the specific language governing permissions\n * and limitations under the License.\n */\npackage edu.virginia.vcgr.genii.client.context;\n\nimport java.io.FileNotFoundException;\nimport java.io.IOException;\n\npublic interface IContextResolver extends Cloneable\n"
+  },
+  {
+    "prefix": "package com.zookeeper.client.distribute.config;\n\nimport java.util.concurrent.TimeUnit;\n\n/**\n * @author Wang danning\n * @since 2020-03-06 22:47\n **/\npublic class TestMain {\n    public static void main(String[] args) throws InterruptedException {\n        Config config = new Config();\n\n        config.save(\"timeout\", \"1000\");\n\n        for (int i",
+    "suffix": "}\n",
+    "target": " = 0; i < 100; i++) {\n\n            System.out.println(config.get(\"timeout\"));\n\n            TimeUnit.SECONDS.sleep(5);\n        }\n    }\n"
+  },
+  {
+    "prefix": "package me.oriharel.machinery.exceptions;",
+    "suffix": "NotFoundException(String message) {\n        super(message);\n    }\n}\n",
+    "target": "\n\npublic class MachineNotFoundException extends Exception {\n    public Machine"
+  },
+  {
+    "prefix": "package EntityFX.Core.Generic;\n\nimport java.io.FileNotFoundException;\n\nimport EntityFX.Core.Writer;\n\npublic class MathBenchmark extends MathBase<Double> {\n    public MathBenchmark(Writer writer, boolean printToConsole) throws FileNotFoundException {\n        super(writer, printToConsole);\n    }\n\n    @Override\n    public Double bench",
+    "suffix": " doMath(i, li);\n        }\n        return R;\n    }\n}",
+    "target": "Implementation() {\n        double R = 0;\n\n        double li = 0;\n        for (int i = 0; i < Iterrations; li = i, i++)\n        {\n            R +="
+  },
+  {
+    "prefix": "package org.prebid.server.proto.openrtb.ext.request.gumgum;\n\nimport com.fasterxml.jackson.annotation.JsonProperty;\nimport lombok.AllArgsConstructor;\nimport lombok.Value;\n\nimport java.math.",
+    "suffix": "Property(\"pubId\")\n    BigInteger pubId;\n\n    @JsonProperty(\"irisid\")\n    String irisId;\n}\n",
+    "target": "BigInteger;\n\n@AllArgsConstructor(staticName = \"of\")\n@Value\npublic class ExtImpGumgum {\n\n    String zone;\n\n    @Json"
+  },
+  {
+    "prefix": "package com",
+    "suffix": " android.content.Context;\n\npublic interface IShowToast {\n    int showToast(Context context);\n}\n",
+    "target": ".example.testdextoast;\n\nimport"
+  },
+  {
+    "prefix": "package com.koala.day06aop.config",
+    "suffix": ".springComponents.springContext.context.annotation.EnableAspectJAutoProxy;\nimport org.springframework.beans.BeansException;\nimport org.springframework.context.annotation.Configuration;\n\n/**\n * Create by koala on 2021-09-12\n */\n@EnableAspectJAutoProxy //开启自动代理\n@Configuration\npublic class AopOpenConfig01 implements BeanFactoryAware {\n    private BeanFactory beanFactory;\n\n    @Override\n    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {\n        this.beanFactory = beanFactory;\n    }\n}\n",
+    "target": ";\n\nimport com.koala.day06aop.springComponents.springBeans.factory.BeanFactory;\nimport com.koala.day06aop.springComponents.springBeans.factory.BeanFactoryAware;\nimport com.koala.day06aop"
+  },
+  {
+    "prefix": "package com.lemonade.leetcode.t1000.t500;\n\npublic class RemoveKDigits402 {\n\n    public static void main(String[] args) {\n        new RemoveKDigits402().removeKDigits(\"1234\", 3);\n    }\n\n    public String removeKDigits(String num, int k) {\n        int n = k;\n       ",
+    "suffix": ";\n            }\n            i++;\n        }\n\n        while (i < arr.length) {\n            sb.append(arr[i++]);\n        }\n        sb = new StringBuilder(sb.substring(0, sb.length() - n));\n        i = 0;\n        while(i < sb.length() - 1 && sb.substring(i, i + 1).equals(\"0\")){\n            i++;\n        }\n        sb = new StringBuilder(sb.substring(i));\n\n        return sb.toString();\n\n    }\n}\n",
+    "target": " char[] arr = num.toCharArray();\n        if (arr.length <= k) {\n            return \"0\";\n        }\n        int i = 0;\n        StringBuilder sb = new StringBuilder();\n        while (n > 0 && i < arr.length - 1) {\n            if (arr[i] <= arr[i + 1]) {\n                sb.append(arr[i]);\n            } else {\n                n--"
+  },
+  {
+    "prefix": "import java.util.Scanner;\n\npublic class ex014 {\n    public static void main(String[] args) {\n        float salariomin = 1400, contaluz, desconto, novacontaluz;\n        String mes;\n        Scanner",
+    "suffix": "ariomin / 7;\n        desconto = contaluz * 0.1f;\n        novacontaluz = contaluz - desconto;\n\n        System.out.println(\"O valor da sua conta em \" + mes + \", com 10% de desconto é \" + novacontaluz);\n    }\n}\n",
+    "target": " exibe;\n\n        exibe = new Scanner(System.in);\n\n        System.out.print(\"De qual mês deseja verificar a conta: \");\n        mes = exibe.next();\n\n        contaluz = sal"
+  },
+  {
+    "prefix": "package com.example.dragand",
+    "suffix": "AndDrawActivity extends SingleFragmentActivity {\n\n    @Override\n    protected Fragment createFragment() {\n        return DragAndDrawFragment.newInstance();\n    }\n}\n",
+    "target": "draw;\n\nimport androidx.fragment.app.Fragment;\n\npublic class Drag"
+  },
+  {
+    "prefix": "package geym.conc.ch3.synctrl.cond;\n\nimport java.util.concurrent.locks.Condition;\nimport java.util.concurrent.locks.ReentrantLock;\n\npublic class ReenterLockCondition implements Runnable{\n\tpublic static ReentrantLock lock=new ReentrantLock();\n\tpublic static Condition condition = lock.newCondition();\n\t@Override\n\tpublic void run() {\n\t\ttry {\n\t\t\tlock.lock();\n\t\t\tcondition.await();\n\t\t\tSystem.out.println(\"Thread is going on\");\n\t\t} catch (InterruptedException e) {\n\t\t\te.printStackTrace();\n\t\t}finally{\n\t\t\tlock.unlock();\n\t\t}\n\t}\n\tpublic static void main(String",
+    "suffix": "();\n//\t\tlock.unlock();\n\t}\n}\n",
+    "target": "[] args) throws InterruptedException {\n\t\tReenterLockCondition tl=new ReenterLockCondition();\n\t\tThread t1=new Thread(tl);\n\t\tt1.start();\n\t\tThread.sleep(2000);\n\t\t//通知线程t1继续执行\n\t\tlock.lock();\n\t\tcondition.signal"
+  },
+  {
+    "prefix": "package com.perfecto.reportium.imports.model.event;\n\npublic class ExecutionEngine {\n    private String name;\n    private String version;\n    private String host;\n\n    public ExecutionEngine() {\n    }\n\n    public ExecutionEngine(String name, String version, String host) {\n    }\n\n    public String getName() {\n        return this.name;\n    }\n\n   ",
+    "suffix": " }\n\n    public String getHost() {\n        return this.host;\n    }\n\n    public void setHost(String host) {\n        this.host = host;\n    }\n}\n",
+    "target": " public void setName(String name) {\n        this.name = name;\n    }\n\n    public String getVersion() {\n        return this.version;\n    }\n\n    public void setVersion(String version) {\n        this.version = version;\n   "
+  },
+  {
+    "prefix": "package pers.adlered.blackbug.client.tools;\n\nimport pers.adlered.blackbug.client.Values;\n\npublic class OSDetector {\n    public OSDetector() {\n        String OS = System.getProperty(\"",
+    "suffix": "OS.indexOf(\"windows\") != -1) {\n            System.out.println(\"[OS Detect] You are running Windows.\");\n            Values.OS = \"Windows\";\n        } else {\n            System.out.println(\"[OS Detect] You are running Linux.\");\n            Values.OS = \"Linux\";\n        }\n    }\n}\n",
+    "target": "os.name\").toLowerCase();\n        if (OS.indexOf(\"mac\") != -1) {\n            System.out.println(\"[OS Detect] You are running macOS.\");\n            Values.OS = \"macOS\";\n        } else if ("
+  },
+  {
+    "prefix": "package com.skeleton.mvp.adapter;\n\nimport android.content.Context;\nimport androidx.annotation.NonNull;\nimport android.view.ViewGroup;\n\nimport com.skeleton.mvp.R;\nimport com.skeleton.mvp.viewHolders.SelectedSendEmailViewHolder;\nimport com.skeleton.mvp.baseRecycler.BaseRecyclerViewAdapter;\nimport com.skeleton.mvp.baseRecycler.OnRecyclerViewObjectClickListener;\nimport com.skeleton.mvp.model.GetAllMembers;\n\n/**\n * Created by rajatdhamija\n * 10/08/18.\n */\n\npublic class SelectedSendEmailMembersAdapter extends BaseRecyclerViewAdapter<GetAllMembers,\n        OnRecycler",
+    "suffix": " new SelectedSendEmailViewHolder(inflate(R.layout.item_selected_user, parent));\n    }\n}\n",
+    "target": "ViewObjectClickListener<GetAllMembers>, OnRecyclerViewObjectLongClickListener<GetAllMembers>,\n        SelectedSendEmailViewHolder> {\n\n    public SelectedSendEmailMembersAdapter(Context context) {\n        super(context);\n    }\n\n    @NonNull\n    @Override\n    public SelectedSendEmailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\n        return"
+  },
+  {
+    "prefix": "package net.chinhung.core.component.order.impl.create;\n\nimport net.chinhung.core.component.order.impl.CoreOrderDataSource;\nimport net.chinhung.",
+    "suffix": " final CoreOrderDataSource dataSource = Mockito.mock(CoreOrderDataSource.class);\n        final CreateService createService = new CreateService(dataSource);\n\n        final Create command = Mockito.any();\n        createService.execute(command);\n\n        Mockito.verify(dataSource).create(command);\n    }\n}\n",
+    "target": "core.component.order.Create;\nimport org.junit.jupiter.api.Test;\nimport org.mockito.Mockito;\n\npublic class CreateServiceTest {\n\n    @Test\n    public void testExecute() {\n       "
+  },
+  {
+    "prefix": "package com.niluogege.serveredu.mapper;\n\nimport com.baomidou.mybatisplus.core.mapper.BaseMapper;\nimport com.niluogege.serveredu.entity.EduCourse;\nimport com.niluogege.serveredu.entity.vo.CoursePublish",
+    "suffix": "5\n */\npublic interface EduCourseMapper extends BaseMapper<EduCourse> {\n\n    /**\n     * 发布详情\n     * @param courseId\n     * @return\n     */\n    CoursePublishVo getCoursePublishVo(@Param(\"courseId\") String courseId);\n}\n",
+    "target": "Vo;\nimport org.apache.ibatis.annotations.Param;\n\n/**\n * <p>\n * 课程 Mapper 接口\n * </p>\n *\n * @author niluogege\n * @since 2021-11-1"
+  },
+  {
+    "prefix": "package jobless.dao.mapper;\r\n\r\nimport java.util.List;\r\n\r\nimport jobless.model.BoardCategoryVO;\r\n\r\n@MyAnnotMapper\r\npublic interface IBoardCategoryMapper {\r\n\tpublic void insertBoardCategory(BoardCategoryVO boardCategory);\r\n\t\r\n\tpublic BoardCategoryVO selectBoardCategoryById(int boardCategoryId);\r\n\t\r\n\tpublic List<",
+    "suffix": ");\r\n\t\r\n\tpublic void updateBoardCategory(BoardCategoryVO boardCategory);\r\n}\r\n",
+    "target": "BoardCategoryVO> selectBoardCategoryByBoardId(int boardId);\r\n\t\r\n\tpublic List<BoardCategoryVO> selectAllBoardCategory();\r\n\t\r\n\tpublic void deleteBoardCategory(int boardCategoryId"
+  },
+  {
+    "prefix": "package com.ak47007.enums;\n\nimport lombok.AllArgsConstructor;\nimport lombok.Getter;",
+    "suffix": "    NOT_PASS(0, \"未通过\"),\n    CHECKING(1, \"待审核\");\n\n    private Integer status;\n    private String dec;\n}\n",
+    "target": "\n\n@Getter\n@AllArgsConstructor\npublic enum LinkStatusEnum {\n\n\n    PASS(2, \"通过\"),\n"
+  },
+  {
+    "prefix": "package com.nepxion.matrix.proxy.feign.example.service;\n\nimport com.nepxion.matrix.proxy.feign.example",
+    "suffix": " org.springframework.stereotype.Service;\n\n@Service\npublic class MyService {\n    @Autowired\n    private DemoApi demoApi;\n\n    public void test() {\n        Demo demo = demoApi.get(\"1\");\n        System.out.println(demo.getKey());\n    }\n}\n",
+    "target": ".api.DemoApi;\nimport com.nepxion.matrix.proxy.feign.example.bean.Demo;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport"
+  },
+  {
+    "prefix": "package mda.annotation.jpa;\n\nimport static java.lang",
+    "suffix": ". This annotation is \n * applied to the entity class.\n *\n * @since Java Persistence 1.0\n */\n@Target(TYPE) \n@Retention(RUNTIME)\n\npublic @interface Entity {\n\n    /** The name of an entity. Defaults to the unqualified \n     * name of the entity class. This name is used to\n     * refer to the entity in queries. The name must not be \n     * a reserved literal in the Java Persistence query language.  */\n    String name() default \"\";\n}\n",
+    "target": ".annotation.ElementType.TYPE;\nimport static java.lang.annotation.RetentionPolicy.RUNTIME;\n\nimport java.lang.annotation.Retention;\nimport java.lang.annotation.Target;\n\n/**\n * Specifies that the class is an entity"
+  },
+  {
+    "prefix": "package",
+    "suffix": " */\nclass EdtExecutor implements Executor\n{\n\tprivate final boolean synchronous;\n\n\tEdtExecutor(boolean synchronous)\n\t{\n\t\tthis.synchronous = synchronous;\n\t}\n\n\t@Override\n\tpublic void execute(Runnable run)\n\t{\n\t\tif (synchronous)\n\t\t{\n\t\t\tif (SwingUtilities.isEventDispatchThread())\n\t\t\t{\n\t\t\t\trun.run();\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\ttry\n\t\t\t\t{\n\t\t\t\t\tSwingUtilities.invokeAndWait(run);\n\t\t\t\t}\n\t\t\t\tcatch (InterruptedException | InvocationTargetException e)\n\t\t\t\t{\n\t\t\t\t\tthrow new RuntimeException(e);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tSwingUtilities.invokeLater(run);\n\t\t}\n\t}\n}\n",
+    "target": " com.earnix.eo.eventbus;\n\nimport javax.swing.SwingUtilities;\nimport java.lang.reflect.InvocationTargetException;\nimport java.util.concurrent.Executor;\n\n/**\n * Schedules runnable's into EDT. Allows to try or avoid synchronous execution if current thread is EDT.\n"
+  },
+  {
+    "prefix": "package cn.edu.jxnu.leetcode.scala;\n/**\n * scala 版 本库的Scala写法不唯一，随性，无标准 Scal",
+    "suffix": "仓库是Java项目+Maven+Scala库环境，出现导入问题很正常\n * <p>\n * 可以的话考虑单独新建scala项目即可【此时不需要maven编译插件了】\n * <p>\n * 已改Gradle标准结构+IDEA\n */",
+    "target": "a SDK 2.12\n * <p>\n * 导入的时候可能出现错误，直接在propblems中把errors给delete掉即可，不影响\n * <p>\n * PS:整个"
+  },
+  {
+    "prefix": "package com.gulimall.member.dao;\n\nimport com.gulimall.member.entity.MemberReceiveAddressEntity;\nimport com.baomidou.mybatisplus.core.mapper.BaseMapper;\nimport org.apache.ibatis.annotations.Mapper;\n\n/**\n * 会员收货地址\n *",
+    "suffix": "@Mapper\npublic interface MemberReceiveAddressDao extends BaseMapper<MemberReceiveAddressEntity> {\n\t\n}\n",
+    "target": " \n * @author ljf\n * @email ljf@gmail.com\n * @date 2021-07-09 15:56:34\n */\n"
+  },
+  {
+    "prefix": "package net.n2oapp.framework.api.metadata.meta.widget",
+    "suffix": "ombok.Setter;\n\n/**\n * Абстрактная модель кнопки в меню\n */\n@Getter\n@Setter\npublic abstract class AbstractButton extends MenuItem {\n\n    @JsonProperty\n    private String color;\n}\n",
+    "target": ".toolbar;\n\nimport com.fasterxml.jackson.annotation.JsonProperty;\nimport lombok.Getter;\nimport l"
+  },
+  {
+    "prefix": "package com.shejiaomao.common;\n\npublic class WidgetConstants {\n\n\tpublic",
+    "suffix": "\n",
+    "target": " static boolean isDebug = true;\n}"
+  },
+  {
+    "prefix": "\r\npackage cn.featherfly.common.lang.function;\r\n\r\nimport java.util.Map;\r\n\r\n/**\r\n * <p>\r\n * ArraySupplier\r\n * </p>\r\n *\r\n *",
+    "suffix": "K, V>> {\r\n\r\n}\r\n",
+    "target": " @author zhongj\r\n */\r\npublic interface MapSupplier<K, V> extends SerializableSupplier<Map<"
+  },
+  {
+    "prefix": "package testing;\r\n\r\nimport static org.junit.Assert.*;\r\n\r\nimport org.junit.After;\r\nimport org.",
+    "suffix": "\tVolunteer v1;\r\n\r\n\t@Before\r\n\tpublic void setUp() throws Exception {\r\n\t\taVolunteerLine = new VolunteerLine(5);\r\n\t\tv1 = new Volunteer(\"vol1\");\r\n\t}\r\n\r\n\t@After\r\n\tpublic void tearDown() throws Exception {\r\n\t\taVolunteerLine = null;\r\n\t\tv1 = null;\r\n\t}\r\n\r\n\t@Test\r\n\tpublic void testAddNewVolunteer() {\r\n\r\n\t\ttry {\r\n\t\t\tassertTrue(aVolunteerLine.addNewVolunteer(v1));\r\n\t\t} catch (Exception e) {\r\n\t\t\t// TODO Auto-generated catch block\r\n\t\t\tassertTrue(\"This should not have thrown an exception\", false);\r\n\t\t}\r\n\t}\r\n}\r\n",
+    "target": "junit.Before;\r\nimport org.junit.Test;\r\n\r\nimport dataElements.Volunteer;\r\nimport dataStructure.VolunteerLine;\r\n\r\n/**\r\n * \r\n * @author revised by Professor Kartchner\r\n *\r\n */\r\npublic class VolunteerLine_GFA_Test {\r\n\r\n\tVolunteerLine aVolunteerLine;\r\n"
+  },
+  {
+    "prefix": "package com.x.file.assemble.control.jaxrs.file;\n\nimport com.x.base.core.exception.PromptException;\n\nclass AttachmentNot",
+    "suffix": "50L;\n\n\tAttachmentNotExistedException(String id) {\n\t\tsuper(\"指定的Attachmenet: {} 不存在.\", id);\n\t}\n}\n",
+    "target": "ExistedException extends PromptException {\n\n\tprivate static final long serialVersionUID = 77502070070611653"
+  },
+  {
+    "prefix": "package aem.dam.core.datasource;\n\nimport com.day.cq.search.Predicate;\nimport com.day.cq.search.eval.AbstractPredicate",
+    "suffix": "Override\n    public boolean canXpath(Predicate predicate, EvaluationContext context) {\n        return false;\n    }\n\n    @Override\n    public boolean canFilter(Predicate predicate, EvaluationContext context) {\n        return true;\n    }\n}\n",
+    "target": "Evaluator;\nimport com.day.cq.search.eval.EvaluationContext;\n\npublic class FilteringPredicateEvaluator extends AbstractPredicateEvaluator {\n    @"
+  },
+  {
+    "prefix": "/* Copyright (c) 2015 EMC Corporation\n * All Rights Reserved\n *\n */\npackage com.emc.storageos.cinder.model;\n\nimport java.util.Map;\n\nimport javax.xml.bind.",
+    "suffix": " absolute = new absoluteStats();\n\t\tpublic Map<String, Integer> absolute;\n    \tpublic int rate[];\n    \t\n    /*public class absoluteStats{\n        int totalSnapshotsUsed;\n        int maxTotalVolumeGigabytes;\n        int totalGigabytesUsed;\n        int maxTotalSnapshots;\n        int totalVolumesUsed;\n        int maxTotalVolumes;\n    }*/\t\n}\n",
+    "target": "annotation.XmlRootElement;\n\nimport org.codehaus.jackson.map.annotate.JsonRootName;\n\n@JsonRootName(value=\"limits\")\n@XmlRootElement(name=\"limits\")\npublic class CinderLimits {\t\n    \t//public absoluteStats"
+  },
+  {
+    "prefix": "package com.huidong.legalsys.domain;\n\n/**\n * 罪名表单\n * id 罪名编号\n * accu 罪名名称\n",
+    "suffix": "\" + id +\n                \",accu=\" + accu + \"}\";\n    }\n\n    public void setId(Integer id) {\n        this.id = id;\n    }\n\n    public void setAccu(String accu) {\n        this.accu = accu;\n    }\n}\n",
+    "target": " */\npublic class Accusation {\n    private Integer id;\n    private String accu;\n\n    @Override\n    public String toString() {\n        return \"Accusation{\" +\n                \"id="
+  },
+  {
+    "prefix": "package com.baz.app.dps.Visitor;\n\npublic class ComputerPartDisplayVisitor implements ComputerPartVisitor {\n\n    @Override\n    public void visit(Computer computer) {\n",
+    "suffix": "\n    @Override\n    public void visit(Monitor monitor) {\n        System.out.println(\"Displaying Monitor.\");\n    }\n\n    @Override\n    public void visit(Mouse mouse) {\n        System.out.println(\"Displaying Mouse.\");\n    }\n\n}\n",
+    "target": "        System.out.println(\"Displaying Computer.\");\n    }\n\n    @Override\n    public void visit(Keyboard keyboard) {\n        System.out.println(\"Displaying Keyboard.\");\n    }\n"
+  },
+  {
+    "prefix": "package com.scada.dao;\r\n\r\nimport java.util.List;\r\n\r\nimport com.scada.domain.SpamIdentify;\r\n\r\npublic interface Spam",
+    "suffix": ");\r\n\tpublic List<SpamIdentify> getAll();\r\n\tpublic void update();\r\n\t\r\n}\r\n",
+    "target": "IdentifyDao {\r\n\t\r\n\tpublic void save(SpamIdentify spamIdentify);\r\n\tpublic void delete(Integer id"
+  },
+  {
+    "prefix": "package im.zhaojun.zfile.model.enums;\n\n/**\n * @author zhaojun\n */\npublic enum FileTypeEnum {\n\n    /**\n     * 文件\n     */\n    FILE(\"File\"),\n\n    /**\n     * 文件夹\n     */\n    FOLDER(\"Folder\");",
+    "suffix": "\n    }\n\n    public void setValue(String value) {\n        this.value = value;\n    }\n}",
+    "target": "\n\n    private String value;\n\n    FileTypeEnum(String value) {\n        this.value = value;\n    }\n\n    public String getValue() {\n        return value;"
+  },
+  {
+    "prefix": "package de.diedavids.cuba.powerconstraints.entity.example.sales;\n\nimport com.haulmont.chile.core.datatypes.impl.EnumClass;\n\nimport javax.annotation.Nullable;\n\n\npublic enum ShipMode implements EnumClass<Integer> {\n\n    second_class(10),\n    standard_class(20),\n    first_class(30),\n    same_day(40);\n\n    private Integer id;\n\n    ShipMode(Integer value) {\n        this.id = value;\n    }\n\n   ",
+    "suffix": ";\n            }\n        }\n        return null;\n    }\n}",
+    "target": " public Integer getId() {\n        return id;\n    }\n\n    @Nullable\n    public static ShipMode fromId(Integer id) {\n        for (ShipMode at : ShipMode.values()) {\n            if (at.getId().equals(id)) {\n                return at"
+  },
+  {
+    "prefix": "package org.treez.javafxd3.d3.svg;\n\nimport org.treez.javafxd3.d3.AbstractTestCase;\nimport org.treez.javafxd3.d3.svg.datafunction.ChordRadiusDataFunction;\nimport org.treez.javafxd3.d3.svg.datafunction.ChordSourceDataFunction;\nimport org.treez.javafxd3.d3.svg.datafunction.ChordStartAngleDataFunction;\nimport org.treez.javafxd3.d3.svg.datafunction.ChordTargetDataFunction;\n\n\n@SuppressWarnings(\"javadoc\")\npublic class ChordTest extends AbstractTestCase {\n\n\t@Override\t\n\tpublic void doTest() {\n\t\t\n\t\t\n\t\t\n\t\tChord chord = d3.svg().chord();\n\n\t\t// constants\n\t\tchord.startAngle(5);\n\t\tchord.endAngle(5);\n\t\tchord.radius(6);\n\n\t\tchord.source(new ChordSourceData",
+    "suffix": "0.0, 0.0, 0.0});\n\t}\n\n\t\n}\n",
+    "target": "Function());\n\t\tchord.target(new ChordTargetDataFunction());\n\t\t\n\t\t// chord\n\t\tchord.startAngle(new ChordStartAngleDataFunction(engine)) //\n\t\t.endAngle(new ChordStartAngleDataFunction(engine)) //\n\t\t.radius(new ChordRadiusDataFunction(engine));\n\n\t\tchord.generate(new Double[]{0.0, 0.0, 0.0, 0.0, 0.0, "
+  },
+  {
+    "prefix": "package com.huixinpn.dionysus.repository.psychtest;\n\nimport java.util.Collection;\n\nimport org.springframework.data.rest.core.config.",
+    "suffix": ".huixinpn.dionysus.domain.psychtest.PsychTestQuestionOption;\n\n@Projection(name = \"excerpt\", types = PsychTestQuestion.class)\npublic interface PsychTestQuestionExcerpt {\n\t\n\tLong getId();\n\t\n\tInteger getSubId();\n\n\tString getDescription();\n\t\n\tPsychTestQuestionType getType();\n\n\tCollection<PsychTestQuestionOption> getOptions();\n}\n",
+    "target": "Projection;\n\nimport com.huixinpn.dionysus.domain.psychtest.PsychTestQuestion;\nimport com.huixinpn.dionysus.domain.psychtest.PsychTestQuestion.PsychTestQuestionType;\nimport com"
+  },
+  {
+    "prefix": "package com.examples.leetcode.array_easy;\n\n/** https://leetcode.com/problems/max-consecutive-ones/ */\npublic class L485MaxConsecutiveOnes {\n\n    public int findMaxConsecutiveOnes(int[] nums) {\n        int count = 0;\n        int max = 0;\n        for (int i : nums) {",
+    "suffix": ";\n    }\n}\n",
+    "target": "\n            if (i == 1) {\n                max = Math.max(max, ++count);\n            } else {\n                count = 0;\n            }\n        }\n        return max"
+  },
+  {
+    "prefix": "package de.jonashackt.springbootvuejs.repository;\n\n\nimport de.jonashackt.springbootvuejs.model.Seller;\nimport org.springframework.data.jpa.repository.JpaRepository;\nimport org.springframework.data.repository.query.Param;\n\nimport java.util.List;\nimport java.util",
+    "suffix": "> findByInitials(@Param(\"initials\") String initials);\n\n    boolean existsByFirstNameAndLastName(@Param(\"firstName\") String firstName,@Param(\"lastName\") String lastName);\n\n    boolean existsByInitials(@Param(\"initials\") String initials);\n\n    List<Seller> findByFirstNameAndLastNameAndInitials(@Param(\"firstName\") String firstName,@Param(\"lastName\") String lastName,@Param(\"initials\") String initials);\n\n    List<Seller> findAll();\n}\n",
+    "target": ".Optional;\n\npublic interface SellerRepository extends JpaRepository<Seller, Long> {\n\n    Optional<Seller> findById(@Param(\"id\") Long id);\n\n    List<Seller> findByLastName(@Param(\"lastName\") String lastName);\n\n    List<Seller> findByFirstName(@Param(\"firstName\") String firstName);\n\n    List<Seller"
+  },
+  {
+    "prefix": "package com.java.demo.classcreate;\n\nimport java.util.Date;\n\n/**\n * <p>避免创建不必要的对象</p>\n * User: 心远\n * Date: 14/12/16\n * Time: 上午1:50\n */\npublic class AvoidUnnecessaryObject {\n\n    public static void main(String[] args) {\n        Long sum = 0L;\n        Date start = new Date();\n        for (long i = 0; i < Integer.MAX_VALUE; i++) {\n            sum += i;\n        }\n        Date end = new Date();\n        System.out.println(end.getTime() - start.",
+    "suffix": "， 722 可见一个小小的类型自动装箱，在大量计算的情况下带来的时间差距是差不多10倍以上，在内存使用上的差距更大，所以优先使用基本类型\n\n    }\n}\n",
+    "target": "getTime());\n\n        long sumLittle = 0L;\n        Date startNext = new Date();\n        for (long i = 0; i < Integer.MAX_VALUE; i++) {\n            sumLittle += i;\n        }\n        Date endNext = new Date();\n        System.out.println(endNext.getTime() - startNext.getTime());\n        //8533 "
+  },
+  {
+    "prefix": "package idv.caemasar.action;\r\n",
+    "suffix": " {\r\n\r\n\t/**\r\n\t * \r\n\t */\r\n\tprivate static final long serialVersionUID = 588465610991252986L;\r\n\r\n}\r\n",
+    "target": "\r\nimport com.opensymphony.xwork2.ActionSupport;\r\n\r\npublic class BaseAction extends ActionSupport"
+  },
+  {
+    "prefix": "\n\npackage org.springframework.boot.autoconfigure;\n\nimport org.junit.Test;\n\nimport org.springframework.boot.context.annotation.Configurations;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\n/**\n * Tests for {@link AutoConfigurations}.\n *\n * @author Phillip Webb\n */\npublic class AutoConfigurationsTests {\n\n\t@Test\n\tpublic void ofShouldCreateOrderedConfigurations() {\n\t\tConfigurations configurations = AutoConfigurations.of",
+    "suffix": "figureB.class)\n\tpublic static class AutoConfigureA {\n\n\t}\n\n\tpublic static class AutoConfigureB {\n\n\t}\n\n}\n",
+    "target": "(AutoConfigureA.class,\n\t\t\t\tAutoConfigureB.class);\n\t\tassertThat(Configurations.getClasses(configurations))\n\t\t\t\t.containsExactly(AutoConfigureB.class, AutoConfigureA.class);\n\t}\n\n\t@AutoConfigureAfter(AutoCon"
+  },
+  {
+    "prefix": "package com.javarush.task.task04.task0411;\n\n/* \nВремена года на Терре\n*/\n\npublic class Solution {\n    public static void main(String[] args) {\n        checkSeason(12);\n        checkSeason(4);\n        checkSeason(7);\n        checkSeason(10);\n    }\n\n    public static void checkSeason(int month) {\n        if (",
+    "suffix": "осень\");\n        if ((month >= 1 & month <= 2) || month == 12)\n            System.out.println(\"зима\");\n    }\n    }",
+    "target": "month >= 3 & month <= 5)\n            System.out.println(\"весна\");\n        if (month >= 6 & month <= 8)\n            System.out.println(\"лето\");\n        if (month >= 9 & month <= 11)\n            System.out.println(\""
+  },
+  {
+    "prefix": "//,temp,sample_4967.java,2,18,temp,sample_2231.java,2,18\n//,2\npublic class xxx {\npublic void dummy_method(){\nif (fastExistsCheck) {\nString path = file.getAbsoluteFilePath();\nif (path.equals(\"/\") || path.equals(\"\\\\\")) {\nfiles = operations.listFiles();\n} else {\nfiles = operations.listFiles(",
+    "suffix": " fastexistscheck option\");\n}\n}\n}\n\n};",
+    "target": "path);\n}\n} else {\nString path = file.getParent();\nif (path.equals(\"/\") || path.equals(\"\\\\\")) {\n\n\nlog.info(\"using full directory listing in home directory to update file information consider enabling"
+  },
+  {
+    "prefix": "package net.minestom.server.network.packet.server.multiversion.v1_17.impl;\n\nimport net.minestom.server.network.packet.server.ServerPacket;\nimport net.minestom.server.network.packet.server.multiversion.VersionedPacket;\nimport net.minestom.server.network.packet.server.multiversion.v1_17.V1_17ServerPacketIdentifier;\nimport net.minestom.server.network.packet.server.play.EntityAnimationPacket;\nimport net.minestom.server.utils.binary.BinaryWriter;\n\npublic class V1_17EntityAnimationPacket implements VersionedPacket {\n\n    @Override\n    public void writePacket(BinaryWriter writer",
+    "suffix": "ITY_ANIMATION;\n    }\n\n}",
+    "target": ", ServerPacket packet) {\n        EntityAnimationPacket packet_ = (EntityAnimationPacket) packet;\n        writer.writeVarInt(packet_.entityId);\n        writer.writeByte((byte) packet_.animation.ordinal());\n    }\n\n    @Override\n    public int getId() {\n        return V1_17ServerPacketIdentifier.ENT"
+  },
+  {
+    "prefix": "package com.design_patterns.creational.",
+    "suffix": "Type {\n    DOG,\n    CAT,\n    PARROT\n}",
+    "target": "abstract_factory_pattern;\n\npublic enum Animal"
+  },
+  {
+    "prefix": "package cfvbaibai.tbourse.core;\n\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\npublic class CoreConfig {\n    private final Calculator calculator;\n\n    public CoreConfig",
+    "suffix": "ator() {\n        return calculator;\n    }\n}\n",
+    "target": "() {\n        calculator = new Calculator();\n    }\n\n    @Bean(name = \"calculator\")\n    public Calculator getCalcul"
+  },
+  {
+    "prefix": "package com.mateoj.superprefs;\n\nimport android.content.SharedPreferences;\n\n/**\n * Integer preference\n */\npublic class IntPreference extends AbstractPreference<Integer> {\n\n    public IntPreference(SharedPreferences preferences, String key) {\n        this(preferences, key, 0",
+    "suffix": "        return preferences.getInt(key, defaultValue);\n    }\n\n    @Override\n    public void set(Integer value) {\n        preferences.edit().putInt(key, value).apply();\n    }\n\n}\n",
+    "target": ");\n    }\n\n    public IntPreference(SharedPreferences preferences, String key, int defaultValue) {\n        super(preferences, key, defaultValue);\n    }\n\n    @Override\n    public Integer get() {\n"
+  },
+  {
+    "prefix": "package com.tc4b.jmm.testeviewmodel.ui.main;\n\nimport java.util.List;\n\ninterface Load",
+    "suffix": "\n}\n",
+    "target": "ListData {\n    List<ItemLista>getList();"
+  },
+  {
+    "prefix": "package",
+    "suffix": " String hash;\n\n    public Key(String hash){\n        this.hash=hash;\n    }\n\n    public String getHash() {\n        return hash;\n    }\n\n}\n",
+    "target": " io.purecore.api.key;\n\npublic class Key {\n\n    public"
+  },
+  {
+    "prefix": "package",
+    "suffix": "ategy.in;\r\n\r\npublic interface ICalculator {\r\n\r\n\tpublic int calculate(String exp);\r\n}\r\n",
+    "target": " com.rzli.design.pattrn.str"
+  },
+  {
+    "prefix": "#set( $symbol_pound = '#' )\n#set( $symbol_dollar = '$' )\n#set( $symbol_escape = '\\' )\npackage ${package}.model;\n\nimport com.fasterxml.jackson.annotation.JsonProperty;\nimport lombok.AllArgsConstructor;\nimport lombok.Builder;\nimport lombok.Data;\nimport lombok.NoArgsConstructor;\n\n@Data\n@Builder\n@AllArgsConstructor\n@No",
+    "suffix": "}",
+    "target": "ArgsConstructor\npublic class UserTokenState {\n\n    @JsonProperty(\"access_token\")\n    private String accessToken;\n\n    @JsonProperty(\"expires_in\")\n    private Long expiresIn;\n"
+  },
+  {
+    "prefix": "// Generated by protoc-gen-javastream. DO NOT MODIFY.\n// source: frameworks/base/core/proto/android/os/batterystats.proto\n\npackage android.os;\n\n/** @hide */\n// message BatteryStatsProto\npublic final class BatteryStatsProto {\n\n    // optional int32 report_version = 1;\n    public static final long REPORT_VERSION = 0x0000010500000001L;\n\n    // optional int64 parcel_version = 2;\n    public static final long PARCEL_VERSION = 0x0000010300",
+    "suffix": "    // repeated .android.os.UidProto uids = 5;\n    public static final long UIDS = 0x0000020b00000005L;\n\n    // optional .android.os.SystemProto system = 6;\n    public static final long SYSTEM = 0x0000010b00000006L;\n\n}\n\n",
+    "target": "000002L;\n\n    // optional string start_platform_version = 3;\n    public static final long START_PLATFORM_VERSION = 0x0000010900000003L;\n\n    // optional string end_platform_version = 4;\n    public static final long END_PLATFORM_VERSION = 0x0000010900000004L;\n\n"
+  },
+  {
+    "prefix": "package tetris.game.com.entity;\n\nimport javax.persistence.Entity;\nimport javax.persistence.GeneratedValue;\nimport javax.persistence.GenerationType;\nimport javax.persistence.Id;\nimport javax.persistence.Table;\n\n@Entity\n@Table(name = \"Score\")\npublic class Score {\n\t @Id\n\t    @GeneratedValue(strategy = GenerationType.AUTO)\n\t    private Integer id;\n\t    private String name;\n\t    private int score;\n\t    public Score() {\n\t    }\n\t    \n\t\tpublic Score( String name, int score) {\n\t\t\tsuper();\n\t\t\tthis.name = name;\n\t\t\tthis.score = score;\n\t\t}\n\n\t\tpublic Integer getId() {\n\t\t\treturn id",
+    "suffix": "\t\t}\n\n\t\t@Override\n\t\tpublic String toString() {\n\t\t\treturn \"Score [id=\" + id + \", name=\" + name + \", score=\" + score + \"]\";\n\t\t}\n\t\t\n\t    \n}\n",
+    "target": ";\n\t\t}\n\t\tpublic void setId(Integer id) {\n\t\t\tthis.id = id;\n\t\t}\n\t\tpublic String getName() {\n\t\t\treturn name;\n\t\t}\n\t\tpublic void setName(String name) {\n\t\t\tthis.name = name;\n\t\t}\n\t\tpublic int getScore() {\n\t\t\treturn score;\n\t\t}\n\t\tpublic void setScore(int score) {\n\t\t\tthis.score = score;\n"
+  }
+]

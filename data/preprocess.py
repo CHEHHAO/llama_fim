@@ -6,7 +6,7 @@ from transformers import AutoTokenizer
 cfg = yaml.safe_load(open("../config.yaml"))
 
 print("Loading cleaned Java dataset…")
-raw_ds = load_dataset("ammarnasr/the-stack-java-clean", split="train")
+raw_ds = load_dataset("ammarnasr/the-stack-java-clean", split="test")
 print("Dataset size:", len(raw_ds))
 
 print("Loading tokenizer…")
@@ -32,4 +32,4 @@ for ex in raw_ds:
     out.append({"prefix": prefix, "suffix": suffix, "target": hole})
 
 print("Generated", len(out), "FIM examples")
-json.dump(out, open("fim_dataset.json", "w"), ensure_ascii=False, indent=2)
+json.dump(out, open("fim_test_dataset.json", "w"), ensure_ascii=False, indent=2)

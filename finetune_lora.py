@@ -32,4 +32,4 @@ train_ds = train_ds.map(encode, batched=True, remove_columns=train_ds.column_nam
 
 args = TrainingArguments(**cfg["train_args"])
 trainer.train(train_ds, args)
-trainer.save_adapter("adapter/adapter.zip")
+trainer.save_adapter("adapter/")
