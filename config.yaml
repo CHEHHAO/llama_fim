@@ -1,0 +1,14 @@
+lora:
+  r: 8
+  alpha: 16
+  modules: [q_proj, v_proj]
+  dropout: 0.05
+train_args:
+  output_dir: output
+  per_device_train_batch_size: 4
+  learning_rate: 3e-4
+  num_train_epochs: 3
+  logging_steps: 100
+tokenizer: deepseek-ai/deepseek-coder-1.3b-base
+max_tokens: 256
+mask_ratio: 0.3  # FIM 挖洞比例
